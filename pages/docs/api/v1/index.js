@@ -178,8 +178,8 @@ class APIPage extends Component {
                       defaultValue={version}
                       onChange={this.handleVersionChange}
                     >
-                      <option value="v1">v1</option>
-                      <option value="v2">v2 (Latest)</option>
+                      <option value="v1">1.0</option>
+                      <option value="v2">2.0 (Latest)</option>
                     </Select>
                   </div>
                   <DocsIndex
