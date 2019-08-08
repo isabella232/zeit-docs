@@ -1,7 +1,7 @@
 version = 1
 
 [merge]
-automerge_label = "Automerge"
+automerge_label = "automerge"
 blacklist_labels = ["in progress"]
 method = "squash"
 delete_branch_on_merge = true
