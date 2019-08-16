@@ -1,0 +1,320 @@
+import Guide from '~/components/layout/guide'
+import Snippet from '~/components/snippet'
+import { InlineCode } from '~/components/text/code'
+import { Image } from '~/components/media'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+import { GenericLink } from '~/components/text/link'
+import Card from '~/components/card'
+import paths from '~/pages/paths'
+
+export const meta = {
+  title:
+    'Create and Deploy a FaunaDB-powered Node.js API using Zeit Now with Zero Config',
+  description:
+    'Learn how to create a Node.js API with serverless data powered by FaunaDB then deploy it as a serverless application using ZEIT Now with Zero Config.',
+  published: '2019-08-12T17:00:00.000Z',
+  authors: ['danieltodonnell'],
+  url: `/guides/${paths.faunadb1}`,
+  image: `${process.env.ASSETS}/guides/${paths.faunadb1}/card.png`,
+  editUrl:
+    'pages/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now.mdx',
+  lastEdited: '2019-08-16T07:22:50.000Z'
+}
+
+<Image
+  src={`${process.env.ASSETS}/guides/${paths.faunadb1}/card.png`}
+  width={1200}
+  height={628}
+  oversize
+/>
+
+Finally, you can unlock the power of true serverless [JAMstack](https://jamstack.org/) architecture without sacrificing data correctness or reliability. Zeit's serverless infrastructure lets you deploy your front-end and server resources [with zero config](https://zeit.co/guides/upgrade-to-zero-configuration). Complementing that, [FaunaDB](https://fauna.com/) is a serverless cloud database that lets you store your app data with zero provisioning, global low-latency and confidence.
+
+This guide walks you through making a FaunaDB account, creating a sample database, and then connecting to it using a lambda function hosted using [Zeit Now](https://zeit.co/guides/upgrade-to-zero-configuration).
+
+## Step 1: Connecting to FaunaDB
+
+To start this example, you need to have [created a FaunaDB account](https://dashboard.fauna.com/accounts/register).
+
+<Image
+  src={`${process.env.ASSETS}/guides/${paths.faunadb1}/fauna-register.png`}
+  width={1934}
+  height={1516}
+  oversize
+/>
+
+Once you have logged into your free account, you can create a child database named `zeit` _(names are case sensitive)_. You can have _almost unlimited_ child databases in your account.
+
+<Image
+  src={`${process.env.ASSETS}/guides/${
+    paths.faunadb1
+  }/fauna-create-zeit-db.png`}
+  width={1442}
+  height={890}
+  oversize
+/>
+
+<Image
+  src={`${process.env.ASSETS}/guides/${paths.faunadb1}/fauna-zeit-db-home.png`}
+  width={1942}
+  height={1514}
+  oversize
+/>
+
+From here, the simplest way for us to create a demo schema with some data is to execute a _Fauna Query Language (FQL)_ script file in [the "Shell" in the side nav bar](https://dashboard.fauna.com/webshell/@db/zeit).
+
+[You can use this FQL script file](TODO).
+
+<Image
+  src={`${process.env.ASSETS}/guides/${paths.faunadb1}/fauna-zeit-db-shell.png`}
+  width={1928}
+  height={1508}
+  oversize
+/>
+
+After executing the script, your "Collections" page looks like this, and we are ready to start connecting to our data!
+
+<Image
+  src={`${process.env.ASSETS}/guides/${
+    paths.faunadb1
+  }/fauna-zeit-db-collections.png`}
+  width={1942}
+  height={1522}
+  oversize
+/>
+
+## Step 2: Create An Access Key
+
+FaunaDB’s **Attribute-Based Access Control** (ABAC) capabilities allow us to generate secure keys to access our databases, collections, or even individual documents, based on simple (or complex) logic. To keep things easy, however, we are just going to generate an access key that gives us read/write access to the "zeit" database that we just created.
+
+It's time to create our first key. [Go to the "Security" page](https://dashboard.fauna.com/keys/@db/zeit) and click on the "New Key" button. Enter the following data in the fields:
+
+Database: `zeit`  
+Role: `Admin`  
+Key Name: `access`  
+Priority: `1`
+
+<Image
+  src={`${process.env.ASSETS}/guides/${
+    paths.faunadb1
+  }/fauna-zeit-db-security.png`}
+  width={1934}
+  height={1522}
+  oversize
+/>
+
+On the next screen (the "Keys List"), you are going to get a unique hash called a “secret” (it will look something like `fnADU71DfWACCaKXrOAb_nnWZY1E_OmkZT7dlumF`) that is your method of securely identifying yourself to your database. **This is the ONLY time you will see this hash**, so record it somewhere private. However, if you ever lose this hash, you can just create another, _no biggie_!
+
+## Step 3: API Setup
+
+We have reached the time to combine the peanut butter with the jelly and make our FaunaDB-Zeit sandwich!
+
+Get started by creating a project directory and `cd` into it:
+
+<Snippet dark text="mkdir faunadb-zeit-fql-demo && cd faunadb-zeit-fql-demo" />
+<Caption>
+  Creating and entering into the <InlineCode>faunadb-zeit-fql-demo</InlineCode>{' '}directory.
+</Caption>
+
+Next, [initialize](https://yarnpkg.com/lang/en/docs/cli/init/) the project:
+
+<Snippet dark text="yarn init" />
+<Caption>
+  Initializing the project, this creates a <InlineCode>package.json</InlineCode>{' '}file.
+</Caption>
+
+<Note hint>
+  During the initializing process, Yarn will ask questions about your project.
+  Answer these how you wish; there are no prerequisites for this example.
+</Note>
+
+Next, install [the FaunaDB Javascript client](https://github.com/fauna/faunadb-js) that helps you to connect to and query your database:
+
+<Snippet dark text="yarn add faunadb" />
+<Caption>
+  Adding the <InlineCode>faunadb</InlineCode> Node.js client as a <GenericLink href="https://yarnpkg.com/lang/en/docs/installing-dependencies/">dependency</GenericLink> to the project.
+</Caption>
+
+To connect, you need the secret that we saved earlier. To use your secret without hard-coding it into your project, you can add your connection string to the project as a [Now Secret](https://zeit.co/docs/v2/deployments/environment-variables-and-secrets/#securing-environment-variables-using-secrets) using the [Now CLI](https://zeit.co/download#now-cli) to keep them secure:
+
+<Snippet dark text="now secrets add faunadb_secret_key YourFaunaDBSecret" />
+<Caption>
+  Adding an environment secret to Zeit.
+</Caption>
+
+Now we can set up the [`now.json` configuration file](https://zeit.co/docs/v2/deployments/configuration/) that tells Now to make available the [Secret](https://zeit.co/docs/v2/deployments/environment-variables-and-secrets/#securing-environment-variables-using-secrets) that you defined:
+
+```javascript
+{
+  "env": {
+    "FAUNADB_SECRET_KEY": "@faunadb_secret_key"
+  }
+}
+```
+
+Since the release of Zeit Now with zero config, we no longer need to provide certain information in our `now.json` file:
+
+- The name of the project is derived from folder name if it's not specified
+- The platform version defaults to the latest version (2)
+- `env` no longer needs to be specified as long as you use specific folder names
+
+<Note hint>
+  To use this environment variable in local development, you need to use a
+  `.env` file.{' '}
+  <GenericLink href="https://zeit.co/docs/v2/development/environment-variables/">
+    Read more about local development and environment variables.
+  </GenericLink>{' '}
+</Note>
+
+## Step 4: Writing our Zeit lambda function
+
+It's time to create the Node.js API endpoint that will be fetching our data from FaunaDB. Let’s create a folder to hold our api code. Zeit Zero convention expects it to be in an `/api` folder.
+
+<Snippet dark text="mkdir api && cd api" />
+<Caption>
+  Creating and entering into the <InlineCode>api</InlineCode>{' '}directory.
+</Caption>
+
+For this example, create a file called `index.js` in `/api`.
+
+The `index.js` file will act as the default endpoint for getting information from your database. The file should contain the following contents:
+
+```javascript
+const faunadb = require('faunadb')
+
+// our secret hash
+const secret = process.env.FAUNADB_SECRET_KEY
+const q = faunadb.query
+const client = new faunadb.Client({ secret })
+
+module.exports = async (req, res) => {
+  try {
+    const dbs = await client.query(
+      q.Map(
+        // iterate each item in result
+        q.Paginate(
+          // make paginatable
+          q.Match(
+            // query index
+            q.Index('all_customers') // specify source
+          )
+        ),
+        ref => q.Get(ref) // lookup each result by its reference
+      )
+    )
+    // ok
+    res.status(200).json(dbs.data)
+  } catch (e) {
+    // something went wrong
+    res.status(500).json({ error: e.message })
+  }
+}
+```
+
+<Note hint>
+  In the code snippet above, you probably noticed that we used{' '}
+  <InlineCode>res.status()</InlineCode> and <InlineCode>res.json()</InlineCode>{' '}
+  to send a response. These methods are automatically added for you when you use
+  <InlineCode>@now/node</InlineCode>. Read more about this in the <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node#helpers">
+    <InlineCode>@now/node</InlineCode> Builder documentation page
+  </GenericLink>.
+</Note>
+
+## Step 5: Deploying
+
+<Snippet dark text="now" />
+<Caption>
+  Executing deployment to Zeit using the now command
+</Caption>
+
+That's it. (_Thanks Zeit!_)
+
+## Step 5.1: See it working
+
+The output from our `now` command tells us if it was successful and where we can go in our browser to see the output!
+
+```
+dev/_zeit/faunadb-zeit-fql-demo
+▶ now
+> Deploying ~/dev/_zeit/faunadb-zeit-fql-demo under danieltodonnell
+> Using project faunadb-zeit-fql-demo
+> https://faunadb-zeit-fql-demo-h41neo7ut.now.sh [v2] [1s]
+> Ready! Deployed to https://faunadb-zeit-fql-demo.danieltodonnell.now.sh [in clipboard] [10s]
+```
+
+So let's open our browser, paste in the url that the `now` command added to our clipboard, add `/api` to the path and visit our lambda!
+
+If we've followed all the steps, and correctly setup the fauna secret, then we should see something like this:
+
+<Image
+  src={`${process.env.ASSETS}/guides/${paths.faunadb1}/json-output.png`}
+  width={1574}
+  height={1378}
+  oversize
+/>
+
+## Conclusion
+
+Of course, what we're showing here isn't a real-world lambda. It does one very useful thing: **It exposes your Fauna database without exposing your secret**. A FaunaDB secret can be as powerful as the login credentials that you used to make your account, so it's important to not include it in your javascript where it can easily found, but to store it as a server environment variable where it is invisible to everything except for your executing lambda code.
+
+This project is [available in Github](TODO) so you can clone/fork it yourself. It also includes supporting files that should speed up compilation.
+
+What this example is missing:
+
+- reusable libraries so we aren't duplicating code,
+- Authentication/Authorization so we can restrict who can consume our functions,
+- multiple routes to perform useful and dynamic queries,
+- utilization of FaunaDB's Attribute-Based Access Control (ABAC), to make our lambda function even more secure
+- and, creation and launch of a front-end to consume our data!
+
+Together in follow-up articles, we will dive deeper into making something even better!
+
+## Deploying Automatically with Git
+
+Instead of deploying manually through your terminal, you can also get **automatic deployments with each git push** when you use [Now for GitHub](/github) or [Now for GitLab](/gitlab).
+
+Push to any branch, pull, or merge request and get a fresh deployment to review. Merging into the default branch results in an automatic alias to production. No extra work needed.
+
+See more on ZEIT Git Integrations:
+
+<Card title="Now for GitHub" href="/docs/v2/integrations/now-for-github">
+  Learn more about automatic deployments and aliasing for every push to a GitHub
+  repository.
+</Card>
+
+<Card title="Now for GitLab" href="/docs/v2/integrations/now-for-gitlab">
+  Learn more about automatic deployments and aliasing for every push to a GitLab
+  project.
+</Card>
+
+## Resources
+
+For more information on working with faunaDB, please refer to [their documentation](https://docs.fauna.com/fauna/current/index.html).
+
+To configure [Now](/docs/v2/getting-started/introduction-to-now) further, please see these additional topics and guides:
+
+<Card title="Deploying Basics" href="/docs/v2/deployments/basics">
+  Deploy any of your applications with ZEIT Now.
+</Card>
+
+<Card
+  title="Aliasing"
+  href="/docs/v2/custom-domains#deploying-with-your-domain"
+>
+  Learn more about aliasing to your deployments.
+</Card>
+
+<Card title="www. Redirect" href="/guides/redirect-from-www">
+  Create a redirect from the www. subdomain to your naked domain.
+</Card>
+
+<Card title="More Guides" href="/guides">
+  See more guides that help you move forward with your projects and deployments.
+</Card>
+
+export default ({ children }) => <Guide meta={meta}>{children}</Guide>
+
+export const config = {
+  amp: 'hybrid'
+}
