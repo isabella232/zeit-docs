@@ -6,6 +6,8 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
 import Card from '~/components/card'
+import Example from '~/components/example'
+import { Code } from '~/components/code'
 import paths from '~/pages/paths'
 
 export const meta = {
@@ -19,7 +21,7 @@ export const meta = {
   image: `${process.env.ASSETS}/guides/${paths.faunadb1}/card.png`,
   editUrl:
     'pages/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now.mdx',
-  lastEdited: '2019-08-16T07:22:50.000Z'
+  lastEdited: '2019-08-16T21:55:01.000Z'
 }
 
 <Image
@@ -39,8 +41,8 @@ To start this example, you need to have [created a FaunaDB account](https://dash
 
 <Image
   src={`${process.env.ASSETS}/guides/${paths.faunadb1}/fauna-register.png`}
-  width={1934}
-  height={1516}
+  width={1934 / 2.5}
+  height={1516 / 2.5}
   oversize
 />
 
@@ -50,26 +52,26 @@ Once you have logged into your free account, you can create a child database nam
   src={`${process.env.ASSETS}/guides/${
     paths.faunadb1
   }/fauna-create-zeit-db.png`}
-  width={1442}
-  height={890}
+  width={1442 / 2}
+  height={890 / 2}
   oversize
 />
 
 <Image
   src={`${process.env.ASSETS}/guides/${paths.faunadb1}/fauna-zeit-db-home.png`}
-  width={1942}
-  height={1514}
+  width={1942 / 2.5}
+  height={1514 / 2.5}
   oversize
 />
 
 From here, the simplest way for us to create a demo schema with some data is to execute a _Fauna Query Language (FQL)_ script file in [the "Shell" in the side nav bar](https://dashboard.fauna.com/webshell/@db/zeit).
 
-[You can use this FQL script file](TODO).
+[You can use this FQL script file](https://raw.githubusercontent.com/danieltodonnell/faunadb-zeit-fql-demo/master/fql-scripts/ecommerce.fql).
 
 <Image
   src={`${process.env.ASSETS}/guides/${paths.faunadb1}/fauna-zeit-db-shell.png`}
-  width={1928}
-  height={1508}
+  width={1928 / 2.5}
+  height={1508 / 2.5}
   oversize
 />
 
@@ -79,8 +81,8 @@ After executing the script, your "Collections" page looks like this, and we are 
   src={`${process.env.ASSETS}/guides/${
     paths.faunadb1
   }/fauna-zeit-db-collections.png`}
-  width={1942}
-  height={1522}
+  width={1942 / 2.5}
+  height={1522 / 2.5}
   oversize
 />
 
@@ -99,8 +101,8 @@ Priority: `1`
   src={`${process.env.ASSETS}/guides/${
     paths.faunadb1
   }/fauna-zeit-db-security.png`}
-  width={1934}
-  height={1522}
+  width={1934 / 2.5}
+  height={1522 / 2.5}
   oversize
 />
 
@@ -145,13 +147,14 @@ To connect, you need the secret that we saved earlier. To use your secret withou
 
 Now we can set up the [`now.json` configuration file](https://zeit.co/docs/v2/deployments/configuration/) that tells Now to make available the [Secret](https://zeit.co/docs/v2/deployments/environment-variables-and-secrets/#securing-environment-variables-using-secrets) that you defined:
 
-```javascript
-{
+<Example>
+  <span>now.json</span>
+  <Code lang="json">{`{
   "env": {
     "FAUNADB_SECRET_KEY": "@faunadb_secret_key"
   }
-}
-```
+}`}</Code>
+</Example>
 
 Since the release of Zeit Now with zero config, we no longer need to provide certain information in our `now.json` file:
 
@@ -179,6 +182,9 @@ It's time to create the Node.js API endpoint that will be fetching our data from
 For this example, create a file called `index.js` in `/api`.
 
 The `index.js` file will act as the default endpoint for getting information from your database. The file should contain the following contents:
+
+<Example>
+  <span>/api/index.js</span>
 
 ```javascript
 const faunadb = require('faunadb')
@@ -212,6 +218,8 @@ module.exports = async (req, res) => {
 }
 ```
 
+</Example>
+
 <Note hint>
   In the code snippet above, you probably noticed that we used{' '}
   <InlineCode>res.status()</InlineCode> and <InlineCode>res.json()</InlineCode>{' '}
@@ -234,6 +242,9 @@ That's it. (_Thanks Zeit!_)
 
 The output from our `now` command tells us if it was successful and where we can go in our browser to see the output!
 
+<Example>
+  <span>`now` output</span>
+
 ```
 dev/_zeit/faunadb-zeit-fql-demo
 ▶ now
@@ -243,14 +254,16 @@ dev/_zeit/faunadb-zeit-fql-demo
 > Ready! Deployed to https://faunadb-zeit-fql-demo.danieltodonnell.now.sh [in clipboard] [10s]
 ```
 
+</Example>
+
 So let's open our browser, paste in the url that the `now` command added to our clipboard, add `/api` to the path and visit our lambda!
 
 If we've followed all the steps, and correctly setup the fauna secret, then we should see something like this:
 
 <Image
   src={`${process.env.ASSETS}/guides/${paths.faunadb1}/json-output.png`}
-  width={1574}
-  height={1378}
+  width={852 / 2}
+  height={1376 / 2}
   oversize
 />
 
@@ -258,7 +271,7 @@ If we've followed all the steps, and correctly setup the fauna secret, then we s
 
 Of course, what we're showing here isn't a real-world lambda. It does one very useful thing: **It exposes your Fauna database without exposing your secret**. A FaunaDB secret can be as powerful as the login credentials that you used to make your account, so it's important to not include it in your javascript where it can easily found, but to store it as a server environment variable where it is invisible to everything except for your executing lambda code.
 
-This project is [available in Github](TODO) so you can clone/fork it yourself. It also includes supporting files that should speed up compilation.
+This project is [available in Github](https://github.com/danieltodonnell/faunadb-zeit-fql-demo) so you can clone/fork it yourself. It also includes supporting files that should speed up compilation.
 
 What this example is missing:
 
@@ -269,6 +282,15 @@ What this example is missing:
 - and, creation and launch of a front-end to consume our data!
 
 Together in follow-up articles, we will dive deeper into making something even better!
+
+For more information on working with FaunaDB, please refer to:
+
+<Card
+  title="FaunaDB Documentation"
+  href="https://docs.fauna.com/fauna/current/index.html"
+>
+  Learn more about aliasing to your deployments.
+</Card>
 
 ## Deploying Automatically with Git
 
@@ -289,8 +311,6 @@ See more on ZEIT Git Integrations:
 </Card>
 
 ## Resources
-
-For more information on working with faunaDB, please refer to [their documentation](https://docs.fauna.com/fauna/current/index.html).
 
 To configure [Now](/docs/v2/getting-started/introduction-to-now) further, please see these additional topics and guides:
 
