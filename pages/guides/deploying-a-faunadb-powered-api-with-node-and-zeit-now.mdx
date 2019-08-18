@@ -8,7 +8,6 @@ import { GenericLink } from '~/components/text/link'
 import Card from '~/components/card'
 import Example from '~/components/example'
 import { Code } from '~/components/code'
-import paths from '~/lib/paths'
 
 export const meta = {
   title:
@@ -17,15 +16,19 @@ export const meta = {
     'Learn how to create a Node.js API with serverless data powered by FaunaDB then deploy it as a serverless application using ZEIT Now with Zero Config.',
   published: '2019-08-12T17:00:00.000Z',
   authors: ['danieltodonnell'],
-  url: `/guides/${paths.faunadb1}`,
-  image: `${process.env.ASSETS}/guides/${paths.faunadb1}/card.png`,
+  url: `/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now`,
+  image: `${
+    process.env.ASSETS
+  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/card.png`,
   editUrl:
     'pages/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now.mdx',
-  lastEdited: '2019-08-16T23:08:01.000Z'
+  lastEdited: '2019-08-18T20:12:54.000Z'
 }
 
 <Image
-  src={`${process.env.ASSETS}/guides/${paths.faunadb1}/card.png`}
+  src={`${
+    process.env.ASSETS
+  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/card.png`}
   width={1200 / 1.5}
   height={628 / 1.5}
   oversize
@@ -40,7 +43,9 @@ This guide walks you through making a FaunaDB account, creating a sample databas
 To start this example, you need to have [created a FaunaDB account](https://dashboard.fauna.com/accounts/register).
 
 <Image
-  src={`${process.env.ASSETS}/guides/${paths.faunadb1}/fauna-register.png`}
+  src={`${
+    process.env.ASSETS
+  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/fauna-register.png`}
   width={1934 / 2.5}
   height={1516 / 2.5}
   oversize
@@ -49,16 +54,18 @@ To start this example, you need to have [created a FaunaDB account](https://dash
 Once you have logged into your free account, you can create a child database named `zeit` _(names are case sensitive)_. You can have _almost unlimited_ child databases in your account.
 
 <Image
-  src={`${process.env.ASSETS}/guides/${
-    paths.faunadb1
-  }/fauna-create-zeit-db.png`}
+  src={`${
+    process.env.ASSETS
+  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/fauna-create-zeit-db.png`}
   width={1442 / 2}
   height={890 / 2}
   oversize
 />
 
 <Image
-  src={`${process.env.ASSETS}/guides/${paths.faunadb1}/fauna-zeit-db-home.png`}
+  src={`${
+    process.env.ASSETS
+  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/fauna-zeit-db-home.png`}
   width={1942 / 2.5}
   height={1514 / 2.5}
   oversize
@@ -69,7 +76,9 @@ From here, the simplest way for us to create a demo schema with some data is to 
 [You can use this FQL script file](https://raw.githubusercontent.com/danieltodonnell/faunadb-zeit-fql-demo/master/fql-scripts/ecommerce.fql).
 
 <Image
-  src={`${process.env.ASSETS}/guides/${paths.faunadb1}/fauna-zeit-db-shell.png`}
+  src={`${
+    process.env.ASSETS
+  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/fauna-zeit-db-shell.png`}
   width={1928 / 2.5}
   height={1508 / 2.5}
   oversize
@@ -78,9 +87,9 @@ From here, the simplest way for us to create a demo schema with some data is to 
 After executing the script, your "Collections" page looks like this, and we are ready to start connecting to our data!
 
 <Image
-  src={`${process.env.ASSETS}/guides/${
-    paths.faunadb1
-  }/fauna-zeit-db-collections.png`}
+  src={`${
+    process.env.ASSETS
+  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/fauna-zeit-db-collections.png`}
   width={1942 / 2.5}
   height={1522 / 2.5}
   oversize
@@ -98,9 +107,9 @@ Key Name: `access`
 Priority: `1`
 
 <Image
-  src={`${process.env.ASSETS}/guides/${
-    paths.faunadb1
-  }/fauna-zeit-db-security.png`}
+  src={`${
+    process.env.ASSETS
+  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/fauna-zeit-db-security.png`}
   width={1934 / 2.5}
   height={1522 / 2.5}
   oversize
@@ -261,7 +270,9 @@ So let's open our browser, paste in the url that the `now` command added to our 
 If we've followed all the steps, and correctly setup the fauna secret, then we should see something like this:
 
 <Image
-  src={`${process.env.ASSETS}/guides/${paths.faunadb1}/json-output.png`}
+  src={`${
+    process.env.ASSETS
+  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/json-output.png`}
   width={852 / 2}
   height={1376 / 2}
   oversize
