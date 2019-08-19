@@ -18,7 +18,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-next-mysql-with-now/deploying-next-mysql-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-mysql-with-now.mdx',
-  lastEdited: '2019-08-12T14:08:03.000Z'
+  lastEdited: '2019-08-19T10:49:15.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Next.js](https://nextjs.org/) app with the most popular open source database in the world, [MySQL](https://www.mysql.com/), on [ZEIT Now](/docs/v2).
@@ -49,7 +49,15 @@ Once you have your remote MySQL database setup, you should make a note of your d
 - Database username
 - Database password
 
-Using these credentials, you can connect to your database and insert the [example data](https://github.com/zeit/now-examples/blob/master/nextjs-mysql/db.sql) into a new table named `profiles`.
+Using these credentials, you can connect to your database and insert your data into a new table, named `profiles`.
+
+For this example, a `profile` consists of the following fields:
+
+- **address** `string`
+- **avatar** `string`
+- **email** `string`
+- **id** `number`
+- **name** `string`
 
 For brevity, we do not cover inserting records into a MySQL database. More information on doing this can be found in the [MySQL documentation](https://dev.mysql.com/doc/mysql-getting-started/en/#mysql-getting-started-connecting).
 
