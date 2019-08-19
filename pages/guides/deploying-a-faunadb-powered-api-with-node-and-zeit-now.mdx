@@ -11,7 +11,7 @@ import { Code } from '~/components/code'
 
 export const meta = {
   title:
-    'Create and Deploy a FaunaDB-powered Node.js API using Zeit Now with Zero Config',
+    'Create and Deploy a FaunaDB-powered Node.js API using ZEIT Now with Zero Config',
   description:
     'Learn how to create a Node.js API with serverless data powered by FaunaDB then deploy it as a serverless application using ZEIT Now with Zero Config.',
   published: '2019-08-12T17:00:00.000Z',
@@ -22,7 +22,7 @@ export const meta = {
   }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/card.png`,
   editUrl:
     'pages/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now.mdx',
-  lastEdited: '2019-08-18T20:12:54.000Z'
+  lastEdited: '2019-08-19T04:46:52.000Z'
 }
 
 <Image
@@ -34,9 +34,9 @@ export const meta = {
   oversize
 />
 
-Finally, you can unlock the power of true serverless [JAMstack](https://jamstack.org/) architecture without sacrificing data correctness or reliability. Zeit's serverless infrastructure lets you deploy your front-end and server resources [with zero config](https://zeit.co/guides/upgrade-to-zero-configuration). Complementing that, [FaunaDB](https://fauna.com/) is a serverless cloud database that lets you store your app data with zero provisioning, global low-latency and confidence.
+Finally, you can unlock the power of true serverless [JAMstack](https://jamstack.org/) architecture without sacrificing data correctness or reliability. ZEIT's serverless infrastructure lets you deploy your front-end and server resources [with zero config](https://zeit.co/guides/upgrade-to-zero-configuration). Complementing that, [FaunaDB](https://fauna.com/) is a serverless cloud database that lets you store your app data with zero provisioning, global low-latency and confidence.
 
-This guide walks you through making a FaunaDB account, creating a sample database, and then connecting to it using a lambda function hosted using [Zeit Now](https://zeit.co/guides/upgrade-to-zero-configuration).
+This guide walks you through making a FaunaDB account, creating a sample database, and then connecting to it using a lambda function hosted using [ZEIT Now](https://zeit.co/guides/upgrade-to-zero-configuration).
 
 ## Step 1: Connecting to FaunaDB
 
@@ -119,7 +119,7 @@ On the next screen (the "Keys List"), you are going to get a unique hash called 
 
 ## Step 3: API Setup
 
-We have reached the time to combine the peanut butter with the jelly and make our FaunaDB-Zeit sandwich!
+We have reached the time to combine the peanut butter with the jelly and make our FaunaDB-ZEIT sandwich!
 
 Get started by creating a project directory and `cd` into it:
 
@@ -151,7 +151,7 @@ To connect, you need the secret that we saved earlier. To use your secret withou
 
 <Snippet dark text="now secrets add faunadb_secret_key YourFaunaDBSecret" />
 <Caption>
-  Adding an environment secret to Zeit.
+  Adding an environment secret to ZEIT.
 </Caption>
 
 Now we can set up the [`now.json` configuration file](https://zeit.co/docs/v2/deployments/configuration/) that tells Now to make available the [Secret](https://zeit.co/docs/v2/deployments/environment-variables-and-secrets/#securing-environment-variables-using-secrets) that you defined:
@@ -165,7 +165,7 @@ Now we can set up the [`now.json` configuration file](https://zeit.co/docs/v2/de
 }`}</Code>
 </Example>
 
-Since the release of Zeit Now with zero config, we no longer need to provide certain information in our `now.json` file:
+Since the release of ZEIT Now with zero config, we no longer need to provide certain information in our `now.json` file:
 
 - The name of the project is derived from folder name if it's not specified
 - The platform version defaults to the latest version (2)
@@ -179,9 +179,9 @@ Since the release of Zeit Now with zero config, we no longer need to provide cer
   </GenericLink>{' '}
 </Note>
 
-## Step 4: Writing our Zeit lambda function
+## Step 4: Writing our ZEIT lambda function
 
-It's time to create the Node.js API endpoint that will be fetching our data from FaunaDB. Let’s create a folder to hold our api code. Zeit Zero convention expects it to be in an `/api` folder.
+It's time to create the Node.js API endpoint that will be fetching our data from FaunaDB. Let’s create a folder to hold our api code. ZEIT Now with zero config convention expects it to be in an `/api` folder.
 
 <Snippet dark text="mkdir api && cd api" />
 <Caption>
@@ -242,10 +242,10 @@ module.exports = async (req, res) => {
 
 <Snippet dark text="now" />
 <Caption>
-  Executing deployment to Zeit using the now command
+  Executing deployment to ZEIT using the now command
 </Caption>
 
-That's it. (_Thanks Zeit!_)
+That's it. (_Thanks ZEIT!_)
 
 ## Step 5.1: See it working
 
