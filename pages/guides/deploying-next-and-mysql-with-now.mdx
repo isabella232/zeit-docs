@@ -18,7 +18,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-next-mysql-with-now/deploying-next-mysql-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-mysql-with-now.mdx',
-  lastEdited: '2019-08-19T10:49:15.000Z'
+  lastEdited: '2019-08-20T15:14:47.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Next.js](https://nextjs.org/) app with the most popular open source database in the world, [MySQL](https://www.mysql.com/), on [ZEIT Now](/docs/v2).
@@ -70,18 +70,23 @@ Now that the database is populated, you can create a project directory and `cd` 
   Creating and entering into the <InlineCode>/next-mysql</InlineCode>{' '}directory.
 </Caption>
 
-Next, [initialize](https://yarnpkg.com/lang/en/docs/cli/init/) the project:
+Next, [initialize](https://docs.npmjs.com/cli/init) the project:
 
-<Snippet dark text="yarn init" />
+<Snippet dark text="npm init" />
 <Caption>
   Initializing the project, this creates a <InlineCode>package.json</InlineCode>{' '}file.
 </Caption>
 
-Yarn will present some initial questions to set up your project, complete this and when done, add [`serverless-mysql`](https://github.com/jeremydaly/serverless-mysql) and [`sql-template-strings`](https://github.com/felixfbecker/node-sql-template-strings) as [dependencies](https://yarnpkg.com/en/docs/cli/add#toc-yarn-add):
+<Note>
+  During the initializing process, npm will ask questions about your project.
+  Answer these how you wish; there are no prerequisites for this example.
+</Note>
 
-<Snippet dark text="yarn add serverless-mysql sql-template-strings" />
+When this is complete, add [`serverless-mysql`](https://github.com/jeremydaly/serverless-mysql) and [`sql-template-strings`](https://github.com/felixfbecker/node-sql-template-strings) as [dependencies](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file):
+
+<Snippet dark text="npm i serverless-mysql sql-template-strings" />
 <Caption>
-  Adding <InlineCode>serverless-mysql</InlineCode> and <InlineCode>sql-template-strings</InlineCode> as <GenericLink href="https://yarnpkg.com/lang/en/docs/installing-dependencies/">dependencies</GenericLink> to the project.
+  Adding <InlineCode>serverless-mysql</InlineCode> and <InlineCode>sql-template-strings</InlineCode> as <GenericLink href="https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file">dependencies</GenericLink> to the project.
 </Caption>
 
 Adding [`serverless-mysql`](https://github.com/jeremydaly/serverless-mysql) to the project will allow you to make connections to your MySQL database. In addition to this, it also **manages connections**, ensuring you do not 'max out' the available connections.
@@ -266,9 +271,9 @@ You now have an API that will give you either all profiles or just a single one,
 
 ## Step 5: Creating Your Next.js Client
 
-To add [Next.js]() to your project, you should install the following [dependencies](https://yarnpkg.com/lang/en/docs/installing-dependencies/):
+To add [Next.js](https://nextjs.org/) to your project, you should install the following [dependencies](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file):
 
-<Snippet dark text="yarn add isomorphic-unfetch next react react-dom" />
+<Snippet dark text="npm i isomorphic-unfetch next react react-dom" />
 <Caption>
   Adding multiple dependencies to the project.
 </Caption>

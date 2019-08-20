@@ -15,7 +15,7 @@ export const meta = {
   url: '/guides/deploying-next-and-prismic-with-now',
   image: `https://zeit.co/docs/static/guides/deploying-next-prismic-with-now/deploying-next-prismic-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-prismic-with-now.mdx',
-  lastEdited: '2019-08-16T15:05:32.000Z'
+  lastEdited: '2019-08-20T15:14:47.000Z'
 }
 
 In this guide, you will create a [Next.js](https://nextjs.org/) blog site from scratch that will show you how to; source the content you have in a Prismic repository, create pages programmatically, handle dynamic routing, and deploy it with [Now](/docs/v2).
@@ -37,7 +37,7 @@ For this guide, you will start with **installing a boilerplate Next.js project t
 
 This process clones the codebase and guides you through setting up the repository that will be used as your blog's content source.
 
-<Snippet dark text="yarn global add prismic-cli" />
+<Snippet dark text="npm i -g prismic-cli" />
 <Caption>Installing the <InlineCode>prismic-cli</InlineCode> command line tool.</Caption>
 
 <Snippet dark text="prismic theme https://github.com/raulg/prismic-next-blog" />
@@ -48,13 +48,13 @@ Navigate to the folder you have created and inspect the files and folders that a
 - `/custom_types`, which details the data modeling for your Prismic repository, in this case the **blog_home** and **post** documents
 - `package.json`, which includes the Next.js and React dependencies, as well as scripts to [develop](/docs/v2/development/basics/) and [deploy](/docs/v2/deployments/basics/) for Now
 
-You can run your application with the `yarn dev` command, and check at `localhost:3000` that the app is running correctly.
+You can run your application with the `npm run dev` command, and check at `localhost:3000` that the app is running correctly.
 
 You will notice that for now it is only a simple index page, as defined in `/pages`. This takes care of getting your simple [Next.js](https://nextjs.org/) app started, you can now begin setting up your Prismic repository.
 
 Continue by installing the required packages to integrate your Next.js web application with Prismic.
 
-<Snippet dark text="yarn add prismic-javascript prismic-reactjs" />
+<Snippet dark text="npm i prismic-javascript prismic-reactjs" />
 <Caption>Adding the <InlineCode>prismic-javascript</InlineCode> and <InlineCode>prismic-reactjs</InlineCode> dependencies to fetch and render documents.</Caption>
 
 If you open the `prismic-configuration.js` file, you might notice that the API endpoint has **already been set up according to the repository you created during the installation process**.
@@ -108,7 +108,7 @@ export default BlogHome
 The `home` prop now contains the [document object](https://prismic.io/docs/reactjs/rendering/the-document-object) received from the API, including the data fields you set earlier for the blog author's image, title, and short description.
 
 <Note>
-  If you run the app now with <InlineCode>yarn dev</InlineCode>, you will see
+  If you run the app now with <InlineCode>npm run dev</InlineCode>, you will see
   this information displayed at{' '}
   <GenericLink href="localhost:3000">
     <InlineCode>localhost:3000</InlineCode>
@@ -259,9 +259,9 @@ You can now refresh your site at [`localhost:3000`](http://localhost:3000/) and 
 
 ## Step 5: Deploying With Now
 
-So far, you have been using `yarn dev` to develop locally, but what good is a blog if you don't show it off to the world. It's time to deploy it to the Now platform and enjoy your serverless web application.
+So far, you have been using `npm run dev` to develop locally, but what good is a blog if you don't show it off to the world. It's time to deploy it to the Now platform and enjoy your serverless web application.
 
-You can run `yarn deploy` to launch the [Now CLI](/download) which will quickly setup and deploy your project online. Once it's done, you can check the generated url.
+You can run `npm run deploy` to launch the [Now CLI](/download) which will quickly setup and deploy your project online. Once it's done, you can check the generated url.
 
 Your minimalistic blog using Prismic and built with Next.js is now online on Now and **can be shared instantly** using the URL given by the Now CLI.
 
@@ -282,6 +282,6 @@ if (context.res) {
   <InlineCode>Post.getInitialProps</InlineCode> functions.
 </Caption>
 
-Deploy this new version to Now with `yarn deploy`. You minimal blog is now being served even faster thanks to the [Now Smart CDN](/smart-cdn). You can try adding or modifying content in your Prismic repository and it **will be served instantaneously** on your now public site.
+Deploy this new version to Now with `npm run deploy`. You minimal blog is now being served even faster thanks to the [Now Smart CDN](/smart-cdn). You can try adding or modifying content in your Prismic repository and it **will be served instantaneously** on your now public site.
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>

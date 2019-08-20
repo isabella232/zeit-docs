@@ -17,7 +17,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-a-mongodb-powered-api-with-node-and-now/card.png`,
   editUrl: 'pages/guides/deploying-a-mongodb-powered-api-with-node-and-now.mdx',
-  lastEdited: '2019-08-12T14:08:03.000Z'
+  lastEdited: '2019-08-20T15:14:47.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Node.js](https://nodejs.org/) API powered by [MongoDB](https://www.mongodb.com/), on [ZEIT Now](/now).
@@ -44,23 +44,23 @@ Get started by creating a project directory and `cd` into it:
   Creating and entering into the <InlineCode>my-mongodb-api</InlineCode>{' '}directory.
 </Caption>
 
-Next, [initialize](https://yarnpkg.com/lang/en/docs/cli/init/) the project:
+Next, [initialize](https://docs.npmjs.com/cli/init) the project:
 
-<Snippet dark text="yarn init" />
+<Snippet dark text="npm init" />
 <Caption>
   Initializing the project, this creates a <InlineCode>package.json</InlineCode>{' '}file.
 </Caption>
 
 <Note>
-  During the initializing process, Yarn will ask questions about your project.
+  During the initializing process, npm will ask questions about your project.
   Answer these how you wish; there are no prerequisites for this example.
 </Note>
 
 Next, install [the MongoDB Node.js client](https://mongodb.github.io/node-mongodb-native/), which you will use to connect to your MongoDB cluster and database:
 
-<Snippet dark text="yarn add mongodb" />
+<Snippet dark text="npm i mongodb" />
 <Caption>
-  Adding the <InlineCode>mongodb</InlineCode> Node.js client as a <GenericLink href="https://yarnpkg.com/lang/en/docs/installing-dependencies/">dependency</GenericLink> to the project.
+  Adding the <InlineCode>mongodb</InlineCode> Node.js client as a <GenericLink href="https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file">dependency</GenericLink> to the project.
 </Caption>
 
 To connect to MongoDB, you will need your MongoDB connection string.

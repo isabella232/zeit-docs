@@ -14,7 +14,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/Deploy%20Sanity%20with%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F3do82whm%2Fproduction%2F32ad3bafc3c20872754ca164eece005c6827fac4-186x247.svg',
   editUrl: 'pages/guides/deploying-sanity-studio-with-now.mdx',
-  lastEdited: '2019-08-12T14:08:03.000Z'
+  lastEdited: '2019-08-20T15:14:47.000Z'
 }
 
 [Sanity.io](https://www.sanity.io) is a platform for structured content with an open source editing environment. Sanity Studio is a single page application written in React, where you can configure the document types and input fields, with simple JavaScript objects. The Studio connects to Sanity’s hosted real-time APIs. You can also customize the Studio with your own input components, plugins, and tools.
@@ -36,7 +36,7 @@ This guide will walk you through how to deploy Sanity Studio with Now in three s
 
 First, install the [Sanity CLI](https://www.npmjs.com/package/@sanity/cli):
 
-<Snippet dark text="yarn global add @sanity/cli" />
+<Snippet dark text="npm i -g @sanity/cli" />
 <Caption>Adding the Sanity CLI as a global package to enable use of the <InlineCode>sanity</InlineCode> command.</Caption>
 
 To initiate a new project and download the Studio code to your computer, run the following in the command line:
@@ -96,9 +96,9 @@ Add the following scripts to the Studio’s `package.json` file:
   when Sanity's CLI asks questions.
 </Note>
 
-Lastly, add `@sanity/cli` as a [development dependency](https://yarnpkg.com/en/docs/dependency-types#toc-dev-dependencies), this will allow [Now](/now) to build your project on deployment.
+Lastly, add `@sanity/cli` as a [development dependency](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file), this will allow [Now](/now) to build your project on deployment.
 
-<Snippet dark text="yarn add -D @sanity/cli" />
+<Snippet dark text="npm i -D @sanity/cli" />
 <Caption>
   Adding the Sanity CLI to the project as a development dependency.
 </Caption>

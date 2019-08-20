@@ -15,7 +15,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20a%20Charge%20site**%20with%20Now.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fd33wubrfki0l68.cloudfront.net%2F25151dcf9878a3c40b686628cc84c9292d95ca0e%2F9e22f%2Fimages%2Flogomark.svg',
   editUrl: 'pages/guides/deploying-charge-with-now.mdx',
-  lastEdited: '2019-08-12T14:08:03.000Z'
+  lastEdited: '2019-08-20T15:14:47.000Z'
 }
 
 [Charge](https://charge.js.org/) is an opinionated, zero-config static site generator written in JavaScript. Charge is fast, simple and behaves the way you expect it to.
@@ -40,16 +40,21 @@ In this guide, we will walk you through creating and [deploying](/docs/v2/deploy
   Creating and entering into the <InlineCode>/charge-app</InlineCode>{' '}directory.
 </Caption>
 
-Next, [initialize](https://yarnpkg.com/lang/en/docs/cli/init/) the project:
+Next, [initialize](https://docs.npmjs.com/cli/init) the project:
 
-<Snippet dark text="yarn init" />
+<Snippet dark text="npm init" />
 <Caption>
   Initializing the project, this creates a <InlineCode>package.json</InlineCode>{' '}file.
 </Caption>
 
-Yarn will present some initial questions to set up your project, complete this and when done, add Charge as a [development dependency](https://yarnpkg.com/en/docs/cli/add#toc-yarn-add-dev-d):
+<Note>
+  During the initializing process, npm will ask questions about your project.
+  Answer these how you wish; there are no prerequisites for this example.
+</Note>
 
-<Snippet dark text="yarn add -D @static/charge" />
+When this is complete, add Charge as a [development dependency](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file):
+
+<Snippet dark text="npm i -D @static/charge" />
 <Caption>
   Adding Charge as a development dependency to our project.
 </Caption>
@@ -126,7 +131,7 @@ export default ({ children }) => {
 
 If, at any point, you want to see how your changes look, you can serve them locally with the script you added in the first step:
 
-<Snippet dark text="yarn dev" />
+<Snippet dark text="npm run dev" />
 <Caption>
   Starting up a local development server using a <InlineCode>package.json</InlineCode> script.
 </Caption>
