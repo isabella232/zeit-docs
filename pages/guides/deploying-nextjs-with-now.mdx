@@ -14,145 +14,33 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20Serverless%20Next.js**%20with%20Now.png?theme=light&md=1&fontSize=83px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg&heights=250&heights=350',
   editUrl: 'pages/guides/deploying-nextjs-with-now.mdx',
-  lastEdited: '2019-08-12T14:08:03.000Z'
+  lastEdited: '2019-08-20T13:48:36.000Z'
 }
-
-This guide will help you get started using [Next.js](https://nextjs.org/) with [Now](/now) by covering a variety of topics from [Installing Now](#installing-now) to deploying your Next.js application **with a single command**.
 
 Next.js is a framework, created by [ZEIT](https://zeit.co), for creating production-ready and lightning fast React applications with a lot of handy features built-in.
 
-## Installing Now
+In this guide, you will learn how to create and deploy a [Next.js](https://nextjs.org/) application with [ZEIT Now](/now).
 
-<Note>
-  If you already have Now installed, you can{' '}
-  <GenericLink href="#creating-the-project">skip this step</GenericLink>.
-</Note>
+## Step 1: Set Up Your Next.js Project
 
-To get started with Now, you must first install it. You can find instructions on to do this on the [download page](/download).
+The first step in setting up your new Next.js project is to generate it with [`create-next-app`](https://github.com/zeit/next.js#quick-start):
 
-#### GitHub and GitLab Integrations
-
-To enhance your development experience with Now further, with automatic deployments, aliasing, and more, we also provide integrations with both [GitHub](/docs/v2/integrations/now-for-github/) and [GitLab](/docs/v2/integrations/now-for-gitlab/).
-
-For more information, the links above outline the key features and the **benefits our Git integrations bring to your workflow**.
-
-## Step 1: Creating the Project
-
-To get started, create a project directory and `cd` into it:
-
-<Snippet dark text="mkdir my-nextjs-project && cd my-nextjs-project" />
-<Caption>Creating an entering into the <InlineCode>my-nextjs-project</InlineCode> project directory.</Caption>
-
-With the project directory created, initialize the project like so:
-
-<Snippet dark text="yarn init -y" />
-<Caption>Initializing your project with a <InlineCode>package.json</InlineCode> file.</Caption>
-
-<Note>
-  Using the <InlineCode>-y</InlineCode> flag will initialize the created{' '}
-  <InlineCode>package.json</InlineCode> file with{' '}
-  <GenericLink href="https://yarnpkg.com/en/docs/creating-a-package#toc-creating-your-first-package">
-    these
-  </GenericLink>{' '}
-  default settings.
-</Note>
-
-Next, add the project dependencies:
-
-<Snippet dark text="yarn add next react react-dom" />
-<Caption>Adding <InlineCode>next</InlineCode>, <InlineCode>react</InlineCode> and <InlineCode>react-dom</InlineCode> as dependencies to your project.</Caption>
-
-Add the following build script to your `package.json` file:
-
-```json
-{
-...
-  "scripts": {
-    "build": "next build"
-  }
-}
-```
-
+<Snippet dark text="yarn create next-app my-next-app && cd my-next-app" />
 <Caption>
-  An example<InlineCode>package.json</InlineCode> file for your Next.js project.
-</Caption>
-
-With your project setup, create a `/pages` folder:
-
-<Snippet dark text="mkdir pages" />
-<Caption>Creating a <InlineCode>/pages</InlineCode> folder in your project.</Caption>
-
-Inside your `/pages` folder, create an `index.js` file with the following content:
-
-```jsx
-import Head from 'next/head'
-
-export default function HomePage() {
-  return (
-    <main>
-      <Head>
-        <title>Next.js on Now</title>
-      </Head>
-      <h1>Next.js on Now</h1>
-      <h2>
-        Developed & Deployed with{' '}
-        <a
-          href="https://zeit.co/docs"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          ZEIT Now
-        </a>
-        !
-      </h2>
-      <style jsx>{`
-        main {
-          font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue',
-            'Helvetica', 'Arial', sans-serif;
-          padding: 20px 20px 60px;
-          max-width: 680px;
-          margin: 0 auto;
-          font-size: 16px;
-          line-height: 1.65;
-          text-align: center;
-        }
-        h1 {
-          margin-top: 70px;
-          font-size: 45px;
-        }
-        a {
-          cursor: pointer;
-          color: #0076ff;
-          text-decoration: none;
-          transition: all 0.2s ease;
-          border-bottom: 1px solid white;
-        }
-        a:hover {
-          border-bottom: 1px solid #0076ff;
-        }
-      `}</style>
-    </main>
-  )
-}
-```
-
-<Caption>
-  An <InlineCode>index.js</InlineCode> file for your Next.js project.
+  Initializing a Next.js project with <InlineCode>create-next-app</InlineCode>{' '}
+  and <GenericLink href="https://yarnpkg.com">Yarn</GenericLink>, the moving into the project directory.
 </Caption>
 
 ## Step 2: Deploying with Now
 
-When you're happy with your project and ready to share it with the world, it is time to deploy with Now with **just a single command**.
+With your Next.js project created, it is time to deploy with ZEIT Now using **only a single command**.
+
+If you have not yet installed Now, you can do so by [installing Now CLI](/download).
 
 <Snippet dark text="now" />
 <Caption>Deploying your project with the <InlineCode>now</InlineCode> command.</Caption>
 
-After your project has been built and deployed, you will **receive a deployment URL** with the following format:
-
-<Code>project-name.account-name.now.sh</Code>
-<Caption>An example deployment URL for your project.</Caption>
-
-Your project is **live at this URL immediately**, allowing it to be shared with no delay.
+If you want to deploy your Hugo project when you push to a Git repository, you can use either [Now for GitHub](/docs/v2/advanced/now-for-github/) or [Now for GitLab](/docs/v2/advanced/now-for-gitlab/) to have your project automatically deployed on every push, and aliased on push to master.
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
