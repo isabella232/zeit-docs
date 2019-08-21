@@ -11,7 +11,7 @@ export const meta = {
   date: '12 July 2018',
   editUrl: 'pages/docs/v1/static-deployments/builds/building-with-now.mdx',
   image: process.env.IMAGE_ASSETS_URL + '/docs/static-builds/tw-card.png',
-  lastEdited: '2019-03-05T01:21:32.000Z'
+  lastEdited: '2019-08-21T09:45:29.000Z'
 }
 
 With <Now color="#000"/>, you can build static apps when deploying using a `Dockerfile`. You can build a static app however you wish and then output the content in a directory called `/public` for Now to upload after the build.
@@ -69,20 +69,21 @@ FROM mhart/alpine-node
 WORKDIR /usr/src
 
 # Install dependencies
-COPY package.json yarn.lock ./
-RUN yarn
+COPY package.json package-lock.json ./
+RUN npm i
 
 # Copy the relevant files to the working directory
 COPY . .
 
 # Build and export the app
-RUN yarn build && yarn export -o /public
+RUN npm run build && npm run export -o /public
 ```
 
 <Caption>
   A simple Dockerfile to build a Next.js app with Node.js and the package.json
   scripts we made in{' '}
-  <GenericLink href="#step-1:-preparing-the-app-for-export">Step 1</GenericLink>.
+  <GenericLink href="#step-1:-preparing-the-app-for-export">Step 1</GenericLink>
+  .
 </Caption>
 
 If you don't want to copy all of your files to the working directory, [create a whitelist with a `.dockerignore` file](#whitelisting-files-for-deployment-with.dockerignore).
@@ -101,7 +102,8 @@ For Now to recognize our deployment as a static app, we'll need to mark it as a 
 
 <Caption>
   Setting `type` as `static` in a `now.json` file. Read more about{' '}
-  <GenericLink href="/docs/features/configuration">configuring Now</GenericLink>.
+  <GenericLink href="/docs/features/configuration">configuring Now</GenericLink>
+  .
 </Caption>
 
 > Please note that you can extend your `now.json` file as needed, but `"type": "static"` is required for static builds.
@@ -134,12 +136,12 @@ Now will recognize a `.dockerignore` file to allow or disallow files to be deplo
 
 Our recommendation is to create a `.dockerignore` file and utilizing it as a whitelist.
 
-Let's take our first Next.js static app example. We can whitelist our `package.json`, `yarn.lock`, and `pages` directory with the following:
+Let's take our first Next.js static app example. We can whitelist our `package.json`, `package-lock.json`, and `pages` directory with the following:
 
 ```
 *
 !pages
-!yarn.lock
+!package-lock.json
 !package.json
 ```
 
@@ -207,10 +209,10 @@ Let's take a look at using `create-react-app` with Docker and Node.js 10:
 ```
 FROM mhart/alpine-node:10
 WORKDIR /usr/src
-COPY yarn.lock package.json ./
-RUN yarn
+COPY package-lock.json.lock package.json ./
+RUN npm i
 COPY . .
-RUN yarn build && mv build /public
+RUN npm run build && mv build /public
 ```
 
 <Caption>

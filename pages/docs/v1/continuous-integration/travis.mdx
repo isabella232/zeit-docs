@@ -11,7 +11,7 @@ export const meta = {
   date: '13 Mar 2018',
   editUrl: 'pages/docs/v1/continuous-integration/travis.mdx',
   image: process.env.IMAGE_ASSETS_URL + '/docs/ogp/travis-ci-guide.png',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-21T09:45:29.000Z'
 }
 
 Travis Ci is a Continuous Integration tool that lets you automate the build and deployment of your project when something new is pushed to a GitHub repository.
@@ -113,12 +113,12 @@ If you are building a [Next.js](https://github.com/zeit/next.js) application wit
     "server",
     "static",
     "package.json",
-    "yarn.lock"
+    "package-lock.json"
   ]
 }
 ```
 
-With this, Now will only deploy the files under the directories `.next`, `server`, `static`, and the files `package.json` and `yarn.lock`. You can customize this to add any files which will be required by your application after the build step.
+With this, Now will only deploy the files under the directories `.next`, `server`, `static`, and the files `package.json` and `package-lock.json`. You can customize this to add any files which will be required by your application after the build step.
 
 ### Building on Travis
 
