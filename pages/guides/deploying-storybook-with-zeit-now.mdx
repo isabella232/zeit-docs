@@ -1,0 +1,81 @@
+import Guide from '~/components/layout/guide'
+import Snippet from '~/components/snippet'
+import { InlineCode } from '~/components/text/code'
+import Caption from '~/components/text/caption'
+import { GenericLink } from '~/components/text/link'
+
+export const meta = {
+  title:
+    'Create a Svelte Component Library using Storybook and Deploy it with ZEIT Now',
+  description:
+    'How to create a Svelte Component Library using Storybook and deploy it with ZEIT Now.',
+  published: '2019-08-21T12:00:00.860Z',
+  authors: ['msweeneydev'],
+  url: '/guides/deploying-storybook-with-zeit-now',
+  editUrl: 'pages/guides/deploying-storybook-with-zeit-now.mdx',
+  image:
+    'https://og-image.now.sh/**Deploy%20a%20Storybook%20Library**%20%3Cbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1100804485616566273%2FsOct-Txm_400x400.png',
+  lastEdited: '2019-08-21T11:13:44.000Z'
+}
+
+[Storybook](https://storybook.js.org/) is an open source tool for developing JavaScript UI components in isolation. [Svelte](https://svelte.dev/) is a component framework that allows you to write highly-efficient, imperative code, that surgically updates the DOM to maintain performance.
+
+In this guide, you will discover how to set up a Svelte Storybook component library application with [Storybook CLI](https://github.com/storybookjs/storybook/tree/master/lib/cli) and how to deploy it with [ZEIT Now](/now).
+
+## Step 1: Set Up Your Storybook Project
+
+Get started by creating and moving into a `/svelte-stories` directory, then initializing the project:
+
+<Snippet dark text="mkdir svelte-stories && cd svelte-stories && npm init -y" />
+<Caption>Creating and entering into the <InlineCode>/svelte-stories</InlineCode> directory, then initializing a project.</Caption>
+
+Next, use the [Storybook CLI](https://github.com/storybookjs/storybook/tree/master/lib/cli) to bootstrap the project, providing an initial setup to work from:
+
+<Snippet dark text="npx -p @storybook/cli sb init --type svelte" />
+<Caption>Bootstrapping a Svelte Storybook project with <GenericLink href="https://github.com/storybookjs/storybook/tree/master/lib/cli">Storybook CLI</GenericLink>.</Caption>
+
+Now, add `@storybook/svelte`, `@babel/core`, and `babel-loader` as development dependencies:
+
+<Snippet dark text="npm i -D @storybook/svelte @babel/core babel-loader" />
+<Caption>Adding <InlineCode>@storybook/svelte</InlineCode>, <InlineCode>@babel/core</InlineCode>, and <InlineCode>babel-loader</InlineCode> to the project as a development dependencies.</Caption>
+
+With the development dependencies added, extend your `package.json` file by adding the scripts below:
+
+```json
+{
+  "scripts": {
+    ...
+    "storybook": "start-storybook",
+    "build": "build-storybook -c .storybook -o public"
+  }
+}
+```
+
+<Caption>
+  Adding <InlineCode>storybook</InlineCode> and <InlineCode>build</InlineCode>{' '}
+  scripts to the <InlineCode>package.json</InlineCode> file.
+</Caption>
+
+By adding these scripts you are able to start a development server from inside your project directory with `npm storybook`. You are also able to deploy the Storybook component library with [ZEIT Now](/now) with no additional configuration.
+
+## Step 2: Deploying with ZEIT Now
+
+With your project set up, you are ready to deploy your Storybook component library with [ZEIT Now](/now).
+
+If you have not yet installed Now, you can do so by [installing Now CLI](/download).
+
+You can now deploy your Storybook component library with **just a single command**:
+
+<Snippet dark text="now" />
+
+<Caption>
+  Deploying the application with the <InlineCode>now</InlineCode> command.
+</Caption>
+
+If you want to deploy your Storybook component library from a Git repository, you can use either [Now for GitHub](/docs/v2/advanced/now-for-github/) or [Now for GitLab](/docs/v2/advanced/now-for-gitlab/) to have your project automatically deployed on every push, and aliased on push to master.
+
+export default ({ children }) => <Guide meta={meta}>{children}</Guide>
+
+export const config = {
+  amp: 'hybrid'
+}
