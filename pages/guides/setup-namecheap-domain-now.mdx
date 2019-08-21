@@ -13,7 +13,7 @@ export const meta = {
   authors: ['unicodeveloper'],
   url: '/guides/setup-namecheap-domain-now',
   editUrl: 'pages/guides/setup-namecheap-domain-now.mdx',
-  lastEdited: '2019-08-12T14:08:03.000Z'
+  lastEdited: '2019-08-21T08:42:44.000Z'
 }
 
 In this guide, we will cover how to use your Namecheap registered domain as an alias for your ZEIT Now deployments.
@@ -143,7 +143,7 @@ When you are ready to deploy and alias, using the [`alias`](/docs/v2/advanced/co
 
 You can deploy and set up an alias to your domain with one command:
 
-<Snippet dark text="now --target production" />
+<Snippet dark text="now --prod" />
 <Caption>Deploying a project to a production alias.</Caption>
 
 We highly recommend using either the [Now for GitHub](/docs/v2/advanced/now-for-github/) or [Now for GitLab](/docs/v2/advanced/now-for-gitlab/) apps coupled with the same [`alias` configuration option](/docs/v2/advanced/configuration/#alias) which will allow your application to be deployed on push to your GitHub repository and aliased automatically when merged to the default branch.
