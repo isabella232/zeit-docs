@@ -8,7 +8,7 @@ export const meta = {
   title: 'Global Configuration',
   description: 'Configure your use of the ZEIT Now CLI.',
   editUrl: 'pages/docs/v2/advanced/global-configuration.mdx',
-  lastEdited: '2019-08-12T13:29:31.000Z'
+  lastEdited: '2019-08-22T10:47:21.000Z'
 }
 
 <Note>
@@ -25,7 +25,7 @@ There are two global configuration files: `config.json` and `auth.json`. By defa
 
 ## config.json
 
-This file is used for global configuration of Now deployments. Now CLI uses this file as a way to co-ordinate how deployments should be treated, consistently.
+This file is used for global configuration of ZEIT Now deployments. Now CLI uses this file as a way to co-ordinate how deployments should be treated, consistently.
 
 The first option is a single `_` that gives a description to the file, if a user should find themselves looking through it without context.
 
@@ -37,7 +37,7 @@ The following options are all of the options that can be used by users to config
 
 **Valid values**: A [team ID](/docs/api/#endpoints/teams/list-all-your-teams).
 
-This option tells Now CLI which context is currently active. If this property exists and contains a team ID, that team is used as the scope for deployments, otherwise if this property does not exist, the user's personal account is used.
+This option tells [Now CLI](/download) which context is currently active. If this property exists and contains a team ID, that team is used as the scope for deployments, otherwise if this property does not exist, the user's personal account is used.
 
 <Example>
   <Code lang="json">{`{
@@ -51,7 +51,7 @@ This option tells Now CLI which context is currently active. If this property ex
 
 **Valid values**: [An API Origin URL](/docs/api/#api-basics/server-specs/origins).
 
-This option selects which API Origin Now CLI should use when performing an action requiring the API.
+This option selects which API Origin [Now CLI](/download) should use when performing an action requiring the API.
 
 <Example>
   <Code lang="json">{`{
@@ -75,7 +75,7 @@ This option defines whether [Now CLI](/download) should collect anonymous metric
 
 ## auth.json
 
-This file should not be edited manually. It exists to contain the authentication information for the Now clients.
+This file should not be edited manually. It exists to contain the authentication information for the ZEIT Now clients.
 
 In the case that you are uploading your global configuration setup to a potentially insecure destination, we highly recommend ensuring that this file will not be uploaded, as it allows an attacker to gain access to your provider accounts.
 

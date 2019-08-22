@@ -12,7 +12,7 @@ export const meta = {
   description:
     'A look at what Builders are and how they are used with ZEIT Now deployment Builds to achieve production-ready outputs.',
   editUrl: 'pages/docs/v2/advanced/builders.mdx',
-  lastEdited: '2019-08-12T19:10:19.000Z'
+  lastEdited: '2019-08-22T12:42:58.000Z'
 }
 
 Builders are modules that transform your source code into compiled outputs, being either static files and/or [Serverless Functions](https://zeit.co/docs/v2/advanced/concepts/lambdas/), which are served by our [CDN at the edge](https://zeit.co/docs/v2/advanced/concepts/cdn-and-global-distribution/).
@@ -63,7 +63,7 @@ To configure the behavior of this Builder to affect specific files explicitly, s
 
 <Tag>Status: Stable</Tag>
 
-By default, the Static Builds Builder is used when ZEIT Now detects a `build` script inside a `package.json` file at the root of a project. This script is executed when deploying, and if the output is built to a `public` directory, that directory is served.
+By default, the Static Builds Builder is used when Now detects a `build` script inside a `package.json` file at the root of a project. This script is executed when deploying, and if the output is built to a `public` directory, that directory is served.
 
 For example, to build a Gatsby project, you would use the following `scripts` object in a `package.json` file:
 
@@ -211,8 +211,8 @@ module.exports = (req, res) => {
 </Caption>
 
 <Note>
-  If needed, you can opt-out of ZEIT Now providing{' '}
-  <InlineCode>helpers</InlineCode> using{' '}
+  If needed, you can opt-out of Now providing <InlineCode>helpers</InlineCode>{' '}
+  using{' '}
   <GenericLink href="#disabling-helpers-for-node.js">
     advanced configuration
   </GenericLink>
@@ -292,7 +292,7 @@ The default Node.js version used is **8.10.x** but can be changed to **10.x** by
 
 <Tag>Status: Alpha</Tag>
 
-The Go Builder is used by ZEIT Now to compile Go Serverless Functions that expose a single HTTP handler, including using the `net/http` Go API, from a `.go` file within an `/api` directory at your project's root.
+The Go Builder is used by Now to compile Go Serverless Functions that expose a single HTTP handler, including using the `net/http` Go API, from a `.go` file within an `/api` directory at your project's root.
 
 For example, define an `index.go` file inside an `/api` directory as follows:
 
@@ -318,7 +318,7 @@ For advanced usage, such as using private packages with your Go projects, see th
 
 ### Go Version
 
-Go version 1.x is used for Go projects deployed on Now.
+Go version 1.x is used for Go projects deployed with ZEIT Now.
 
 ### Go Dependencies
 
@@ -330,7 +330,7 @@ The Go Builder will automatically detect a `go.mod` file to install dependencies
 
 <Tag>Status: Beta</Tag>
 
-The Python Builder is used by ZEIT Now to compile Python Serverless Functions, that defines a singlular HTTP `handler` variable, inheritting from the `BaseHTTPRequestHandler` class, from a `.py` file within an `/api` directory at your project's root.
+The Python Builder is used by Now to compile Python Serverless Functions, that defines a singlular HTTP `handler` variable, inheritting from the `BaseHTTPRequestHandler` class, from a `.py` file within an `/api` directory at your project's root.
 
 For example, define an `index.py` file inside a `/api` directory as follows:
 
@@ -369,7 +369,7 @@ For advanced usage, such as using WSGI or ASGI for your Python projects, see the
 
 ### Python Version
 
-Python projects deployed on ZEIT Now use Python version 3.6.
+Python projects deployed with ZEIT Now use Python version 3.6.
 
 ### Python Dependencies
 
@@ -381,7 +381,7 @@ You can install dependencies for your Python projects by defining them in a `req
 
 <Tag>Status: Alpha</Tag>
 
-The Ruby Builder is used by ZEIT Now to compile Ruby Serverless Functions that define a singlular HTTP handler from `.rb` files within an `/api` directory at your project's root.
+The Ruby Builder is used by Now to compile Ruby Serverless Functions that define a singlular HTTP handler from `.rb` files within an `/api` directory at your project's root.
 
 Ruby files must have one of the following variables defined:
 
@@ -437,7 +437,7 @@ This Builder supports installing dependencies defined in the `Gemfile`. Alternat
   functionality of ZEIT Now.
 </Note>
 
-If your project has source files that need to be built requiring a different structure than ZEIT Now provides by default, you can use Builders with advanced configuration to achieve that structure.
+If your project has source files that need to be built requiring a different structure than Now provides by default, you can use Builders with advanced configuration to achieve that structure.
 
 Builders can be used with Now by creating a `now.json` file in a project and then [using a `builds` property](/docs/v2/advanced/configuration#builds) within that configuration:
 
@@ -991,7 +991,7 @@ run Sinatra::Application
 
 ## Developing Your Own Builder
 
-Extending the feature-set of a Now deployment is as simple as creating a Builder that takes a list of files and outputs either static files or dynamic [Serverless Functions](/docs/v2/advanced/concepts/lambdas).
+Extending the feature-set of a ZEIT Now deployment is as simple as creating a Builder that takes a list of files and outputs either static files or dynamic [Serverless Functions](/docs/v2/advanced/concepts/lambdas).
 
 [A full API reference is available to help with creating Builders.](https://github.com/zeit/now-builders/blob/canary/DEVELOPING_A_BUILDER.md)
 

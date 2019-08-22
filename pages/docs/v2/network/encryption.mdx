@@ -9,10 +9,10 @@ export const meta = {
   title: 'Encryption',
   description: 'Every ZEIT Now deployment is served of a HTTPS Connection.',
   editUrl: 'pages/docs/v2/network/encryption.mdx',
-  lastEdited: '2019-08-15T13:37:26.000Z'
+  lastEdited: '2019-08-21T15:24:05.000Z'
 }
 
-Out of the box, every **Deployment** on Now is served over an HTTPS connection. The [SSL](https://en.wikipedia.org/wiki/Transport_Layer_Security) certificates for these unique URLs are automatically generated free of charge.
+Out of the box, every **Deployment** on ZEIT Now is served over an HTTPS connection. The [SSL](https://en.wikipedia.org/wiki/Transport_Layer_Security) certificates for these unique URLs are automatically generated free of charge.
 
 Furthermore, any HTTP requests to your **Deployments** are automatically forwarded to HTTPS using the `301` status code:
 
@@ -42,7 +42,7 @@ ZEIT Now supports TLS version [1.2](https://en.wikipedia.org/wiki/Transport_Lay
 
 ## Supported Ciphers
 
-In order to ensure the integrity of the data received and sent by any **Deployment** running on the **Now** platform, we only support ciphers with [forward secrecy](https://en.wikipedia.org/wiki/Forward_secrecy).
+In order to ensure the integrity of the data received and sent by any **Deployment** running on the **ZEIT Now** platform, we only support ciphers with [forward secrecy](https://en.wikipedia.org/wiki/Forward_secrecy).
 
 The following cipher algorithms are supported:
 
@@ -84,7 +84,7 @@ Theoretically, you could set the `max-age` parameter to a different value (it 
 
 ## How Certificates Are Handled
 
-The unique URLs generated when creating a deployment are handled using a wildcard certificate issued for the `.now.sh` domain. The **Now** platform generates wildcard certificates using [LetsEncrypt](https://letsencrypt.org/) and keeps them updated automatically.
+The unique URLs generated when creating a deployment are handled using a wildcard certificate issued for the `.now.sh` domain. The **ZEIT Now** platform generates wildcard certificates using [LetsEncrypt](https://letsencrypt.org/) and keeps them updated automatically.
 
 When custom certificates are generated using `now certs issue`, however, their keys are placed in our database and [encrypted at rest](https://en.wikipedia.org/wiki/Data_at_rest#Encryption) within the Network layer.
 

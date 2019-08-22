@@ -9,7 +9,7 @@ export const meta = {
   title: 'Projects',
   description: 'Setting up projects with a list of deployments on ZEIT Now.',
   editUrl: 'pages/docs/v2/advanced/platform/projects.mdx',
-  lastEdited: '2019-08-12T13:29:31.000Z'
+  lastEdited: '2019-08-21T15:24:05.000Z'
 }
 
 A project is a logical structure that groups deployments and aliases inside of an account or team, based on the name of the project. This structure allows easier tracking and managing of deployments.
@@ -60,12 +60,12 @@ Use the `--name` option to mention the project name as follows:
 If you didn't specify a project name explicitly via one of the above methods, we try to select a project automatically based on following rules:
 
 - If this is GitHub deployment, we use the GitHub repo name as the project
-- If this is a Now CLI based deployment, we use the directory name of your app as the project
+- If this is a [Now CLI](/download) based deployment, we use the directory name of your app as the project
 - If this is a file or a set of files, we use the `files` project
 
 ## Deleting a Project
 
-You can remove a project and all of the deployments contained within it with the following Now CLI command:
+You can remove a project and all of the deployments contained within it with the following [Now CLI](/download) command:
 
 <Snippet dark text="now projects rm <your-project-name>" />
 

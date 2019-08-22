@@ -6,12 +6,12 @@ import Note from '~/components/text/note'
 
 export const meta = {
   title: 'Transfer a Domain',
-  description: 'Transferring your domain either to or from ZEIT',
+  description: 'Transferring your domain either to or from ZEIT.',
   editUrl: 'pages/docs/v2/advanced/domains/transferring-a-domain.mdx',
-  lastEdited: '2019-08-21T08:42:44.000Z'
+  lastEdited: '2019-08-22T10:47:21.000Z'
 }
 
-If you want to transfer your domain in from an external registrar to ZEIT, you can do that painlessly without worrying about domain and DNS configuration. This document will walk you through how to transfer your domain in with Now in a few steps.
+If you want to transfer your domain in from an external registrar to ZEIT, you can do that painlessly without worrying about domain and DNS configuration. This document will walk you through how to transfer your domain in with ZEIT in a few steps.
 
 ### Step 1: Unlock your Domain
 
@@ -36,11 +36,11 @@ After unlocking, **request for an authorization code**. The code will be sent to
 
 ### Step 2: Transfer In your Domain
 
-When transferring a domain, you will have two options to choose from. Either using the Now CLI or doing an inward transfer via our [dashboard](https://zeit.co/dashboard/domains).
+When transferring a domain, you will have two options to choose from. Either using the [Now CLI](/download) or doing an inward transfer via our [dashboard](https://zeit.co/dashboard/domains).
 
 #### Option 1: Using Now CLI
 
-With Now CLI, you can run the following command from your terminal.
+With [Now CLI](/download), you can run the following command from your terminal.
 
 <Snippet dark text="now domains transfer-in <your-domain>" />
 
@@ -48,7 +48,7 @@ You will be requested to provide an authorization code from your registrar after
 
 #### Option 2: Using ZEIT Dashboard
 
-Using the [Zeit dashboard](https://zeit.co/dashboard/domains), you can perform a domain transfer by entering the domain you want to transfer in, and the respective authorization code from the domain registrar via the UI like so:
+Using the [ZEIT dashboard](https://zeit.co/dashboard/domains), you can perform a domain transfer by entering the domain you want to transfer in, and the respective authorization code from the domain registrar via the UI like so:
 
 <Image
   src={`https://assets.zeit.co/image/upload/front/blog/announcing-transfer-in-for-domains/dashboard.png`}
@@ -82,9 +82,9 @@ You can import the zone file to ZEIT DNS by running the following command:
 
 #### Deploying and Aliasing
 
-You can deploy your app with [Now](/docs/v2/introduction) once the domain has been successfully added to your account.
+You can deploy your app with [ZEIT Now](/docs/v2/introduction) once the domain has been successfully added to your account.
 
-By setting a production alias from your projects' **Domains** dashboard, you will be able to use the following command with Now CLI:
+By setting a production alias from your projects' **Domains** dashboard, you will be able to use the following command with [Now CLI](/download):
 
 <Snippet dark text="now --prod" />
 <Caption>Deploying and aliasing a deployment with Now CLI.</Caption>

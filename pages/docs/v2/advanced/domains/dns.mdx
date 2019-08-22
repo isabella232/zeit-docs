@@ -1,21 +1,20 @@
 import Doc from '~/components/layout/docs'
-import Now from '~/components/text/now'
 import Snippet from '~/components/snippet'
 import { GenericLink } from '~/components/text/link'
 import Note from '~/components/text/note'
 
 export const meta = {
   title: 'Managing DNS',
-  description: 'Managing your DNS records for domains used with Now',
+  description: 'Managing your DNS records for domains used with ZEIT Now.',
   editUrl: 'pages/docs/v2/advanced/domains/dns.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-22T10:47:21.000Z'
 }
 
-Thanks to the `now dns` CLI command, managing existing DNS records with <Now color="#000" /> is simple.
+Thanks to the `now dns` CLI command, managing existing DNS records with ZEIT Now is simple.
 
 <Note>
-  This only applies to domains you bought via <Now color="#000" /> or domains
-  configured with our <GenericLink href="/dns">global DNS service</GenericLink>.
+  This only applies to domains you bought via ZEIT or domains configured with
+  our <GenericLink href="/dns">global DNS service</GenericLink>.
 </Note>
 
 ## Using Now CLI
@@ -70,8 +69,8 @@ Creates a [CAA record](https://letsencrypt.org/docs/caa/) that allows issuing ce
 > In this case, you'll be in charge of certificate management for your domain.<br/>
 > Most probably, you'll need to use `CAA` records to:
 >
-> 1. use a custom certificate for your <Now color="#000" /> deployment with `now certs issue --ca`
-> 2. run an app outside of <Now color="#000" /> with TLS for a subdomain
+> 1. use a custom certificate for your Now deployment with `now certs issue --ca`
+> 2. run an app outside of Now with TLS for a subdomain
 
 ### now dns rm &lt;ID>
 

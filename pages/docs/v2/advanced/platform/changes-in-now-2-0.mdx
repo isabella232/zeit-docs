@@ -8,11 +8,11 @@ import Card from '~/components/card'
 import Note from '~/components/text/note'
 
 export const meta = {
-  title: 'Changes in Now 2.0',
+  title: 'Changes in ZEIT Now 2.0',
   description:
     "See what's changed in the latest iteration of the ZEIT Now Platform.",
   editUrl: 'pages/docs/v2/advanced/platform/changes-in-now-2-0.mdx',
-  lastEdited: '2019-08-16T15:05:32.000Z'
+  lastEdited: '2019-08-22T10:47:21.000Z'
 }
 
 The ZEIT Now Platform 2.0 simplifies and streamlines the deployment of static and serverless workloads. In this guide we will walk you through the key differences between Now 1.0 and 2.0, and the improvements this brings.
@@ -31,9 +31,9 @@ Migrating your projects to 2.0 will result in:
 - Faster cold boot times due to **increased granularity**
 
 <Note>
-  v1 is fully maintained and supported. We will only announce a deprecation date
-  once we have ensured all our customers workloads are migrated and the tooling
-  is in place for a smooth transition.
+  Now 1.0 is fully maintained and supported. We will only announce a deprecation
+  date once we have ensured all our customers workloads are migrated and the
+  tooling is in place for a smooth transition.
 </Note>
 
 ## Changes Overview
@@ -44,7 +44,7 @@ We have introduced a strict notion of [platform version](/docs/v2/advanced/platf
 
 Go to your [user and team settings](/account) to upgrade your account or team to **Latest**. After you do so, all new deployments will always use the most recent version (`2`). This is also the default for all new teams and accounts.
 
-If you want to retain certain projects on v1, or pin your platform version, we recommend updating your `now.json` accordingly before you make the switch:
+If you want to retain certain projects on 1.0, or pin your platform version, we recommend updating your `now.json` accordingly before you make the switch:
 
 ```json
 {
@@ -92,7 +92,7 @@ The following prices were drastically reduced:
 
 Plans are no longer available for selection. Users on the legacy plans will continue to be on those plans until they are phased out.
 
-The only two subscription types available now are `Free` and `Unlimited`. If you upgrade to the Unlimited plan and are still running v1 deployments, they will be billed according to the [prior on-demand plan](/pricing/v1).
+The only two subscription types available now are `Free` and `Unlimited`. If you upgrade to the Unlimited plan and are still running 1.0 deployments, they will be billed according to the [prior on-demand plan](/pricing/v1).
 
 ### No Types
 
@@ -115,7 +115,7 @@ This in turn enables:
 
 Running a process persistently as a _daemon_ requires a lot of operational overhead, such as setting up readiness checks, health checks and close monitoring.
 
-While v2 will not support this as a primitive, we still plan to address the following use-cases directly that our customers typically use processes for:
+While 2.0 will not support this as a primitive, we still plan to address the following use-cases directly that our customers typically use processes for:
 
 - Control and sync loops. A series of tasks that execute sequentially to verify or synchronize some remote state.
 - Scheduled jobs. E.g.: a task that needs to run every 50 minutes.
@@ -123,11 +123,11 @@ While v2 will not support this as a primitive, we still plan to address the foll
 
 We believe that these use-cases can be modeled and executed on much more effectively by taking full advantage of the serverless paradigm.
 
-To help our customers in the transition, we won't announce a deprecation date for v1 until these additional features are generally available.
+To help our customers in the transition, we won't announce a deprecation date for 1.0 until these additional features are generally available.
 
 ### No Instances
 
-With Now v2 we're removing the notion of a **deployment instance**. There's no need to keep track of them and they just add overhead to the UI and database.
+With Now 2.0 we're removing the notion of a **deployment instance**. There's no need to keep track of them and they just add overhead to the UI and database.
 
 While it's still very useful to think about what happens when an [instance of a container](/docs/v2/advanced/concepts/lambdas/#versus-processes-and-containers) is running or not as it pertains to hot vs cold invocation of [Lambdas](/docs/v2/advanced/concepts/lambdas), attempts to count or enumerate instances in a UI are impractical and not very beneficial to the developer experience.
 
@@ -258,7 +258,7 @@ Additionally, some environment variables keys are now reserved. You can see a fu
 **Removals:**
 
 - ~~`--links`~~ is no longer supported when deploying. The feature had very niche use-cases and was limited in effectiveness
-- ~~`now scale`~~ is no longer necessary for v2 and deprecated. If you wish to change the regions your Lambdas get deployed to, use the [`regions`](/docs/v2/advanced/configuration#regions) config and re-deploy
+- ~~`now scale`~~ is no longer necessary for 2.0 and deprecated. If you wish to change the regions your Lambdas get deployed to, use the [`regions`](/docs/v2/advanced/configuration#regions) config and re-deploy
 - Custom providers are removed, as we shift the strategy to executing the cross-provider logic from our backend instead
 
 ## Migration Examples

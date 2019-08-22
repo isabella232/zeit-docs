@@ -5,7 +5,7 @@ export const meta = {
   description:
     'Documentation for the concept of how ZEIT Now deployments can utilise the ZEIT CDN to host and serve content at the edge.',
   editUrl: 'pages/docs/v2/advanced/concepts/cdn-and-global-distribution.mdx',
-  lastEdited: '2019-08-12T12:18:55.000Z'
+  lastEdited: '2019-08-22T10:47:21.000Z'
 }
 
 All users can enjoy our [Smart Content Management Network](/smart-cdn) for allowing your content to be served as fast as possible.
@@ -28,11 +28,11 @@ Although this would be enough for ensuring your responses are cached in all [reg
 Cache-Control: s-maxage=31536000, max-age=0
 ```
 
-As you can see above, the header is now instructing the client to expire any caches for the resource immediately. In general, we recommend this because it leverages Now's caches across the Full CDN instead of depending on the client's as well.
+As you can see above, the header is now instructing the client to expire any caches for the resource immediately. In general, we recommend this because it leverages ZEIT Now's caches across the Full CDN instead of depending on the client's as well.
 
 An important reason for this recommendation is that you have full control over purging Now's caches (unlike the client's), as you can read below.
 
-If you do not specify a region (which can be done using the `--regions` flag in Now CLI), your [Lambdas](/docs/v2/advanced/concepts/lambdas) will only be created in the region that is closest to you.
+If you do not specify a region (which can be done using the `--regions` flag in [Now CLI](/download)), your [Lambdas](/docs/v2/advanced/concepts/lambdas) will only be created in the region that is closest to you.
 
 It is recommended that you deploy your Lambdas closest to the data source as possible. If you have a database deployed in Paris, for example, it is natural that you deploy Lambdas to that region as well. If you need to cache, just use [cache control headers](/docs/v2/network/caching).
 

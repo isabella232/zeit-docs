@@ -8,12 +8,12 @@ import { GenericLink } from '~/components/text/link'
 export const meta = {
   title: 'Routes',
   description:
-    'Create proxies, redirects, cache-control headers, and more with Now routes, easily.',
+    'Create proxies, redirects, cache-control headers, and more with ZEIT Now routes, easily.',
   editUrl: 'pages/docs/v2/advanced/routes.mdx',
-  lastEdited: '2019-08-12T13:29:31.000Z'
+  lastEdited: '2019-08-22T10:47:21.000Z'
 }
 
-Now uses routes to define the behavior of how a request is handled on the routing side. For example, you might use a route to proxy a URL to another, redirect a client, or apply a header with the response to a request.
+ZEIT Now uses routes to define the behavior of how a request is handled on the routing side. For example, you might use a route to proxy a URL to another, redirect a client, or apply a header with the response to a request.
 
 By default, routing is defined by the filesystem of your deployment. For example, if a user makes a request to `/123.png`, and your [`now.json` file](/docs/v2/advanced/configuration/#routes) does not contain any routes with a valid `src` matching that path, it will fallback to the filesystem and serve `/123.png` if it exists.
 
@@ -33,7 +33,7 @@ A route can be defined within a project's [`now.json` configuration file](/docs/
 
 ## Routes Properties
 
-Now Routes have multiple properties for each route object that help define the behavior of a response to each request to a particular path.
+ZEIT Now Routes have multiple properties for each route object that help define the behavior of a response to each request to a particular path.
 
 ### `src`
 
@@ -288,13 +288,13 @@ As another example, if you want to redirect from all paths under a certain direc
   keeping the path in the new location.
 </Caption>
 
-If you are using a Next.js app and want to learn more about using custom routes with Now, read our guide:
+If you are using a Next.js app and want to learn more about using custom routes with ZEIT Now, read our guide:
 
 <Card
   title="Deploying with Custom Next.js Routes"
   href="/guides/custom-next-js-server-to-routes"
 >
-  Custom Routes with Next.js and Now
+  Custom Routes with Next.js and ZEIT Now.
 </Card>
 
 ## Wildcard Routes
@@ -336,7 +336,7 @@ In this example, handle filesystem expands to route `/about` and `/contact`.
 
 ## Testing Routes
 
-You can use this [online visual PCRE tester](https://regex101.com) to quickly test your `src` paths before deploying them to Now.
+You can use this [online visual PCRE tester](https://regex101.com) to quickly test your `src` paths before deploying them with ZEIT Now.
 
 An interactive PCRE Regex cheatsheet is also available at [Regex101](https://regex101.com).
 

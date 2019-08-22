@@ -3,9 +3,9 @@ import Doc from '~/components/layout/docs'
 export const meta = {
   title: 'Regions and Providers',
   description:
-    'A listing and explanation of the regions and providers Now implements.',
+    'A listing and explanation of the regions and providers ZEIT Now implements.',
   editUrl: 'pages/docs/v2/network/regions-and-providers.mdx',
-  lastEdited: '2019-08-14T17:58:04.000Z'
+  lastEdited: '2019-08-21T15:24:05.000Z'
 }
 
 A typical server configuration might begin by selecting the region where the physical server is located. A local business would have no issue selecting the closest region to their store, but businesses with traffic spanning cities, countries, or even the entire globe might struggle to serve all their customers. This is where the ZEIT Smart CDN comes in.
@@ -30,7 +30,7 @@ To further increase our coverage and resiliency, we plan to utilize more cloud p
 
 ## Routing
 
-The Now Platform acts as a Universal API and Overlay Network on top of existing cloud infrastructure providers.
+The ZEIT Now Platform acts as a Universal API and Overlay Network on top of existing cloud infrastructure providers.
 
 | Region ID | Reference Location        | Provider Region (Routing)   | Provider Region (Now Lambdas) | Origin/Edge |
 | --------- | ------------------------- | --------------------------- | ----------------------------- | ----------- |
@@ -58,7 +58,7 @@ The Now Platform acts as a Universal API and Overlay Network on top of existing 
 | yul1      | Montreal, Canada          | GCP northamerica-northeast1 | n/a                           | Edge        |
 | zrh1      | Zurich, Switzerland       | GCP europe-west6            | n/a                           | Edge        |
 
-During development via `now dev`, the region is assigned `dev1` to mimic the Now Platform infrastructure.
+During development via `now dev`, the region is assigned `dev1` to mimic the ZEIT Now Platform infrastructure.
 
 | Region ID | Reference Location |
 | --------- | ------------------ |

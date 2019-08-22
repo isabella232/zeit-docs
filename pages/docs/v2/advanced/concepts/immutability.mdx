@@ -3,12 +3,12 @@ import Doc from '~/components/layout/docs'
 export const meta = {
   title: 'Deployment Immutability',
   description:
-    'A look at the concept of immutable deployments, the reasoning behind the behaviour, and the technical aspects of the implementation.',
+    'A look at the concept of immutable deployments, the reasoning behind the behavior, and the technical aspects of the implementation.',
   editUrl: 'pages/docs/v2/advanced/concepts/immutability.mdx',
-  lastEdited: '2019-08-12T12:18:55.000Z'
+  lastEdited: '2019-08-22T10:47:21.000Z'
 }
 
-For a Now deployment to be created, our API requires the client to include a description of the project directory structure and content, expressed as a series of [checksums](https://en.wikipedia.org/wiki/Checksum).
+For a ZEIT Now deployment to be created, our API requires the client to include a description of the project directory structure and content, expressed as a series of [checksums](https://en.wikipedia.org/wiki/Checksum).
 
 If our system finds a sourcefile checksum to be missing in our database, it will request the client to upload it and retry.
 
@@ -28,7 +28,7 @@ This allows you to examine the evolution of a project over time. In addition, if
 
 #### Instant Git Reverts
 
-With Now + Github, if a PR is merged that yields an undesirable outcome, it should be quickly reverted. Similarly, one can revert a commit in any branch of a vanilla `git` repository.
+With ZEIT Now + Github, if a PR is merged that yields an undesirable outcome, it should be quickly reverted. Similarly, one can revert a commit in any branch of a vanilla `git` repository.
 
 Due to the [Now deduplication algorithm](#deduplication-algorithm), if a deployment existed in the past that matches the new source code state.
 

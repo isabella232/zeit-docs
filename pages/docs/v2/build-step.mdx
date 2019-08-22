@@ -18,12 +18,12 @@ export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
   editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2019-08-16T15:05:32.000Z'
+  lastEdited: '2019-08-22T10:47:21.000Z'
 }
 
 When you make a deployment with ZEIT Now, the first step is the build step. Now recognizes a custom `build` script, with that build script outputting your app into the `public` directory.
 
-ZEIT Now also supports optimized frameworks that only need to be created and then they are ready to deploy with [Now CLI](/download) from the terminal.
+Now also supports optimized frameworks that only need to be created and then they are ready to deploy with [Now CLI](/download) from the terminal.
 
 You are also able to use [Environment Variables](#using-environment-variables-and-secrets) (including secrets) in your builds if you do not want to hardcode values for the build.
 
@@ -73,7 +73,7 @@ For example, to build Next.js fresh, each time you deploy, the following `build`
 
 To define an environment variable, you should use **Now Secrets**. By using **Now Secrets**, the data will be encrypted and stored securely, no longer directly accessible by anyone, and only exposed to deployments as environment variables.
 
-Adding **Now Secrets** can be done with [Now CLI](/now), providing three options to work with them.
+Adding **Now Secrets** can be done with [Now CLI](/download), providing three options to work with them.
 
 To **define a Now Secret**, use the following command:
 
@@ -123,7 +123,7 @@ Now, whenever the `process.env.VARIABLE_NAME` key is used, it will provide the a
 
 ## Ignored Files and Folders
 
-By default, Now ignores certain files and folders for security and performance reasons, preventing them from being uploaded during the deployment process.
+By default, ZEIT Now ignores certain files and folders for security and performance reasons, preventing them from being uploaded during the deployment process.
 
 ```bash
 .hg
@@ -152,7 +152,7 @@ CVS
 ```
 
 <Caption>
-  A complete list of files and folders ignored by Now during the deployment
+  A complete list of files and folders ignored by ZEIT Now during the deployment
   process.
 </Caption>
 

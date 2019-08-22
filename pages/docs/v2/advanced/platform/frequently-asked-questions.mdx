@@ -4,7 +4,7 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/advanced/platform/frequently-asked-questions.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-21T15:24:05.000Z'
 }
 
 ## Missing Public Directory
@@ -57,12 +57,12 @@ Once you have defined the `build` [script](https://docs.npmjs.com/misc/scripts),
 
 ## Platform Version Detection
 
-Now CLI will automatically upgrade your deployment to the latest platform version if you create a new project or if your project meets certain criterias. In order for this to work, you must:
+[Now CLI](/download) will automatically upgrade your deployment to the latest platform version if you create a new project or if your project meets certain criterias. In order for this to work, you must:
 
-* Remove any Dockerfile.
-* Remove the `type` property from your `now.json` file.
-* Remove the `start` script from your `package.json` file.
-* Remove the `server.js` file from the root of your project.
+- Remove any Dockerfile.
+- Remove the `type` property from your `now.json` file.
+- Remove the `start` script from your `package.json` file.
+- Remove the `server.js` file from the root of your project.
 
 It is possible to opt out of this behavior by creating a `now.json` file with a `version` property.
 

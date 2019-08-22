@@ -6,14 +6,14 @@ export const meta = {
   title: 'Headers',
   description: 'The list of headers included with deployments with ZEIT Now.',
   editUrl: 'pages/docs/v2/network/headers.mdx',
-  lastEdited: '2019-08-14T16:52:53.000Z'
+  lastEdited: '2019-08-21T15:24:05.000Z'
 }
 
 [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) can be found in both the HTTP Request and HTTP Response.
 
 ## Request Headers
 
-The following headers are sent to each Now deployment and can be used to process the request before sending back a response. These headers can be read from the [Request](https://nodejs.org/api/http.html#http_message_headers) object in your [Lambda](/docs/v2/advanced/concepts/lambdas/).
+The following headers are sent to each ZEIT Now deployment and can be used to process the request before sending back a response. These headers can be read from the [Request](https://nodejs.org/api/http.html#http_message_headers) object in your [Lambda](/docs/v2/advanced/concepts/lambdas/).
 
 ### `host`
 
@@ -60,7 +60,7 @@ This header is identical to the `x-forwarded-for` header.
 
 ## Response Headers
 
-The following headers are included in Now deployment responses and indicate certain factors of the environment. These headers can be viewed from the Browser's Dev Tools or using an HTTP client such as `curl -I <DEPLOYMENT_URL>`.
+The following headers are included in ZEIT Now deployment responses and indicate certain factors of the environment. These headers can be viewed from the Browser's Dev Tools or using an HTTP client such as `curl -I <DEPLOYMENT_URL>`.
 
 ### `cache-control`
 
@@ -110,8 +110,8 @@ Contains a list of [regions](/docs/v2/advanced/platform/regions-and-providers/)
 
 <Note>
   The trace is where a request was processed, it is not necessarily where a
-  lambda was executed, this could be different if you defined `regions` in
-  your`now.json` file.
+  lambda was executed, this could be different if you defined `regions` in your
+  `now.json` file.
 </Note>
 
 ## Cache-Control Header

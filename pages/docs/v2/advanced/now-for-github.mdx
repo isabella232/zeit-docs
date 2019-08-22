@@ -8,12 +8,12 @@ import { GenericLink } from '~/components/text/link'
 export const meta = {
   title: 'Now for GitHub',
   description:
-    'Deploy each change in your GitHub repositories with Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.',
+    'Deploy each change in your GitHub repositories with ZEIT Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.',
   editUrl: 'pages/docs/v2/advanced/now-for-github.mdx',
-  lastEdited: '2019-08-12T12:18:55.000Z'
+  lastEdited: '2019-08-22T10:47:21.000Z'
 }
 
-Now for GitHub is an app for GitHub users or organizations that automatically deploys and aliases changes to repositories with Now.
+Now for GitHub is an app for GitHub users or organizations that automatically deploys and aliases changes to repositories with ZEIT Now.
 
 The Now for GitHub integration features:
 
@@ -48,7 +48,7 @@ height={1212/2}
 />
 <Caption>The Now for GitHub installation section within the account or team onboarding.</Caption>
 
-Clicking the "Install Now for GitHub" button will take you to GitHub where they will prompt you, if you have an account belonging to any organizations, which profile the installation should be installed with. You can pick either your GitHub account or any of the organizations you have access to.
+Clicking the **Install Now for GitHub** button will take you to GitHub where they will prompt you, if you have an account belonging to any organizations, which profile the installation should be installed with. You can pick either your GitHub account or any of the organizations you have access to.
 
 If you are not part of any organization, you will skip straight to the repository selection.
 
@@ -63,7 +63,7 @@ For organizations that you have limited permissions for, GitHub will ask you to 
 
 With an account or organization selected, GitHub will now ask for which repositories Now for GitHub should work with. In this step you are able to allow all repositories to be deployed or an optional set of repositories.
 
-With the GitHub profile and repositories chosen for Now for GitHub to work with, the application will be ready to start using. The next step is to prepare the repository for Now to deploy.
+With the GitHub profile and repositories chosen for Now for GitHub to work with, the application will be ready to start using. The next step is to prepare the repository to be deployed with ZEIT Now.
 
 ## Default Behavior
 
@@ -102,13 +102,13 @@ Due to using GitHub's Deployments API, you will also be able to integrate with o
   width={1738/2}
   height={1046/2}
 />
-<Caption style={{marginTop: '-40px'}}>The checks UI from GitHub containing Now and Ghost Inspector.</Caption>
+<Caption style={{marginTop: '-40px'}}>The checks UI from GitHub containing ZEIT Now and Ghost Inspector.</Caption>
 
 ## Configuration
 
 ### Disabling Auto-Aliasing
 
-To stop Now from [automatically aliasing the default branch](#aliasing-the-default-branch) to any alias setup within the `now.json` file, use the following configuration option.
+To prevent Now from [automatically aliasing the default branch](#aliasing-the-default-branch) to any alias setup within the `now.json` file, use the following configuration option.
 
 ```json
 {
@@ -126,7 +126,7 @@ To stop Now from [automatically aliasing the default branch](#aliasing-the-defau
 
 ### Disable Commenting with Silent Mode
 
-To stop Now from commenting on pull requests and commits, use the following configuration option in [a `now.json` file](/docs/v2/advanced/configuration) for the repository you want to stop this behavior in.
+To prevent Now from commenting on pull requests and commits, use the following configuration option in [a `now.json` file](/docs/v2/advanced/configuration) for the repository you want to stop this behavior in.
 
 <Note>
   Although Now will stop commenting, it will not stop deploying the latest
@@ -146,7 +146,7 @@ To stop Now from commenting on pull requests and commits, use the following conf
 
 ### Disable Auto Job Cancellation
 
-To stop Now from canceling in-progress builds to prioritise building newer commits, use the following configuration option in [a `now.json` file](/docs/v2/advanced/configuration) for the repository that this behavior should exist in.
+To prevent Now from canceling in-progress builds to prioritise building newer commits, use the following configuration option in [a `now.json` file](/docs/v2/advanced/configuration) for the repository that this behavior should exist in.
 
 ```json
 {
@@ -159,7 +159,7 @@ To stop Now from canceling in-progress builds to prioritise building newer commi
 ## Included Environment Variables
 
 You may want to use different workflows and use different APIs based on Git information.<br/>
-In order to support that, Now will deploy your app with following built-in environment variables.
+In order to support that, ZEIT Now will deploy your app with following built-in environment variables.
 
 | Variable Key                     | Description                                                                                                         |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------- |

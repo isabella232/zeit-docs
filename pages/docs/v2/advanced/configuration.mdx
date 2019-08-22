@@ -9,9 +9,9 @@ import Note from '~/components/text/note'
 export const meta = {
   title: 'Deployment Configuration (now.json)',
   description:
-    'Configuring Now so that your deployments are exactly as you need them.',
+    'Configuring ZEIT Now so that your deployments are exactly as you need them.',
   editUrl: 'pages/docs/v2/advanced/configuration.mdx',
-  lastEdited: '2019-08-15T13:37:26.000Z'
+  lastEdited: '2019-08-22T10:47:21.000Z'
 }
 
 When using [Now CLI](/download), [Now for GitHub](/docs/v2/getting-started/installation#now-for-github) or [Now for GitLab](/docs/v2/getting-started/installation#now-for-gitlab), the configuration for your deployment is read from the `now.json` file.
@@ -70,7 +70,7 @@ Specifies the [Now Platform version](/docs/v2/advanced/platform/overview#version
 
 The alias or aliases are applied automatically using [Now for GitHub](/docs/v2/advanced/now-for-github) or [Now for GitLab](/docs/v2/advanced/now-for-gitlab) when merging or pushing to the default branch.
 
-You can deploy to the defined aliases using Now CLI by setting the [production deployment environment target](/docs/v2/custom-domains#deploying-with-your-domain).
+You can deploy to the defined aliases using [Now CLI](/download) by setting the [production deployment environment target](/docs/v2/custom-domains#deploying-with-your-domain).
 
 <Example>
   <b>Usage Example:</b>
@@ -94,7 +94,7 @@ You can deploy to the defined aliases using Now CLI by setting the [production d
 
 **Valid values**: For teams, either an ID or slug. For users, either a email address, username, or ID.
 
-This property determines the scope ([user or team](/docs/v2/platform/users-and-teams/)) under which the project will be deployed by Now CLI.
+This property determines the scope ([user or team](/docs/v2/platform/users-and-teams/)) under which the project will be deployed by [Now CLI](/download).
 
 Furthermore, it also affects any other actions that the user takes within the directory that contains this configuration (e.g. listing [secrets](https://zeit.co/docs/v2/deployments/environment-variables-and-secrets/#securing-environment-variables-using-secrets) using `now secrets ls`).
 
@@ -181,7 +181,8 @@ Environment variables passed to the invoked [Lambdas](/docs/v2/advanced/concepts
     The following will include all HTML files as-is (to be served statically),
     and <GenericLink href="/docs/v2/advanced/builders">Build</GenericLink> all
     Python files and JS files into{' '}
-    <GenericLink href="/docs/v2/advanced/concepts/lambdas">Lambdas</GenericLink>.
+    <GenericLink href="/docs/v2/advanced/concepts/lambdas">Lambdas</GenericLink>
+    .
   </P>
   <Code lang="json">{`{
   "builds": [
@@ -229,8 +230,7 @@ For more information on builds and builders, see the documentation:
   <b>Usage Example:</b>
   <P>
     This example configures custom routes that map to static files and{' '}
-    <GenericLink href="/docs/v2/advanced/concepts/lambdas">Lambdas</GenericLink>
-    .
+    <GenericLink href="/docs/v2/advanced/concepts/lambdas">Lambdas</GenericLink>.
   </P>
   <Code lang="json">{`{
   "builds": [
@@ -358,8 +358,8 @@ When set to false, [Now for GitHub](/docs/v2/integrations/now-for-github) will a
 ---
 
 <Note>
-  If you are looking to configure the Now clients under your system user, read
-  the{' '}
+  If you are looking to configure the ZEIT Now clients under your system user,
+  read the{' '}
   <GenericLink href="/docs/v2/platform/global-configuration">
     documentation for global configuration
   </GenericLink>

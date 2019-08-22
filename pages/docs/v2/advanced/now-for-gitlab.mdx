@@ -7,12 +7,12 @@ import { GenericLink } from '~/components/text/link'
 export const meta = {
   title: 'Now for GitLab',
   description:
-    'Deploy each change in your GitLab projects with Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.',
+    'Deploy each change in your GitLab projects with ZEIT Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.',
   editUrl: 'pages/docs/v2/advanced/now-for-gitlab.mdx',
-  lastEdited: '2019-08-12T12:18:55.000Z'
+  lastEdited: '2019-08-22T10:47:21.000Z'
 }
 
-The Now for GitLab integration automatically deploys and aliases your GitLab projects with [Now](/now).
+The Now for GitLab integration automatically deploys and aliases your GitLab projects with [ZEIT Now](/now).
 
 Now for GitLab provides:
 
@@ -29,7 +29,7 @@ Now for GitLab provides:
 
 ## Set up Now for GitLab
 
-### Step 1: Link Now to Your GitLab Account
+### Step 1: Link ZEIT Now to Your GitLab Account
 
 You can connect your Now account to GitLab by visiting your [account or team](/docs/v2/advanced/platform/users-and-teams) [settings page](/account) and clicking the "Connect with GitLab" button.
 
@@ -46,7 +46,7 @@ Once authorized, you will be redirected back to your ZEIT account or team settin
 
 ### Step 2: Link GitLab Projects
 
-Now only deploys GitLab projects you have explicitly linked to from the GitLab control block in your [account](/account) or team settings page, depending on where you linked your GitLab account. Without linking a project, no deployments will be made.
+ZEIT Now only deploys GitLab projects you have explicitly linked to from the GitLab control block in your [account](/account) or team settings page, depending on where you linked your GitLab account. Without linking a project, no deployments will be made.
 
 You can link projects across all the GitLab namespaces you have access to and unlink a project at any time.
 
@@ -61,7 +61,7 @@ You can also link a GitLab project from the [New Project page](/new):
 
 ## Sign Up or Login with GitLab
 
-If you have, or will have, [connected](#step-1:-link-now-to-your-gitlab-account) your personal GitLab account to your Now account, you can login with GitLab from our [login page](/login).
+If you have, or will have, [connected](#step-1:-link-now-to-your-gitlab-account) your personal GitLab account to your ZEIT Now account, you can login with GitLab from our [login page](/login).
 
 Alternatively; if you do not already have a Now account, you can sign up to ZEIT using your GitLab account from [the sign up page](/signup).
 
@@ -99,7 +99,7 @@ The latest push to any merge request will automatically be aliased to a unique U
 
 ## Included Environment Variables
 
-You may want to use different workflows and APIs based on the environment of the deployment based on Git information. To support that, Now will deploy your app with the following built-in [environment variables](/docs/v2/serverless-functions/env-and-secrets) when deploying with Now for GitLab:
+You may want to use different workflows and APIs based on the environment of the deployment based on Git information. To support that, ZEIT Now will deploy your app with the following built-in [environment variables](/docs/v2/serverless-functions/env-and-secrets) when deploying with Now for GitLab:
 
 | Variable Key                 | Description                                                                             |
 | ---------------------------- | --------------------------------------------------------------------------------------- |
