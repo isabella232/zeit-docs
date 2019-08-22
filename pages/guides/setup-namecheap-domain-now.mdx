@@ -8,12 +8,12 @@ import { GenericLink } from '~/components/text/link'
 export const meta = {
   title: 'Setup a Namecheap Domain with ZEIT Now',
   description:
-    'How to use your Namecheap registered domain as an alias for your ZEIT Now deployments.',
+    'Learn how to use your Namecheap registered domain as an alias for your ZEIT Now deployments.',
   published: '2019-02-15T17:00:00.860Z',
   authors: ['unicodeveloper'],
   url: '/guides/setup-namecheap-domain-now',
   editUrl: 'pages/guides/setup-namecheap-domain-now.mdx',
-  lastEdited: '2019-08-21T08:42:44.000Z'
+  lastEdited: '2019-08-22T09:01:17.000Z'
 }
 
 In this guide, we will cover how to use your Namecheap registered domain as an alias for your ZEIT Now deployments.
@@ -125,7 +125,7 @@ Learn more about using the [`now dns`](https://zeit.co/docs/v2/advanced/domains/
 
 ### Deploying and Aliasing
 
-ZEIT Now is dedicated to making deployment easy. If you have not yet deployed an application, take a look at the [Deployment Basics](/docs/v2/deployments/basics) documentation or at some other [guides](/guides) or [examples](/examples) to get started. The aliasing process will also generate a free SSL certificate for your domain.
+ZEIT Now is dedicated to making deployment easy. If you have not yet deployed an app, take a look at the [Deployment Basics](/docs/v2/deployments/basics) documentation or at some other [guides](/guides) or [examples](/examples) to get started. The aliasing process will also generate a free SSL certificate for your domain.
 
 When you are ready to deploy and alias, using the [`alias`](/docs/v2/advanced/configuration#alias) property containing your domain, within your [`now.json`](/docs/v2/advanced/configuration).
 
@@ -146,7 +146,7 @@ You can deploy and set up an alias to your domain with one command:
 <Snippet dark text="now --prod" />
 <Caption>Deploying a project to a production alias.</Caption>
 
-We highly recommend using either the [Now for GitHub](/docs/v2/advanced/now-for-github/) or [Now for GitLab](/docs/v2/advanced/now-for-gitlab/) apps coupled with the same [`alias` configuration option](/docs/v2/advanced/configuration/#alias) which will allow your application to be deployed on push to your GitHub repository and aliased automatically when merged to the default branch.
+We highly recommend using either the [Now for GitHub](/docs/v2/advanced/now-for-github/) or [Now for GitLab](/docs/v2/advanced/now-for-gitlab/) apps coupled with the same [`alias` configuration option](/docs/v2/advanced/configuration/#alias) which will allow your app to be deployed on push to your GitHub repository and aliased automatically when merged to the default branch.
 
 ## Step 3: Pointing to Now
 
@@ -154,7 +154,7 @@ If you already verified your domain with nameservers, then this step is done.
 
 The final step of migrating your domain to Now is to point your domain to ZEIT DNS with the intended nameservers set. Using `now domains inspect <domain>`, you can always find the intended nameservers to use with your domain.
 
-Once Namecheap's propagation of the updated nameservers is complete, your domain will automatically point to the [ application you deployed](https://zeit.co/guides/setup-godaddy-domain-now/#aliasing-a-deployment) before.
+Once Namecheap's propagation of the updated nameservers is complete, your domain will automatically point to the [app you deployed](https://zeit.co/guides/setup-godaddy-domain-now/#aliasing-a-deployment) before.
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

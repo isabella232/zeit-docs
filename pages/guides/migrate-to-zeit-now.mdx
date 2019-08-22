@@ -13,7 +13,7 @@ export const meta = {
   authors: ['msweeneydev', 'timothy', 'skllcrn'],
   url: '/guides/migrate-to-zeit-now',
   editUrl: 'pages/guides/migrate-to-zeit-now.mdx',
-  lastEdited: '2019-08-06T14:58:43.000Z'
+  lastEdited: '2019-08-22T09:01:17.000Z'
 }
 
 This guide highlights a set of common scenarios and how they are deployed with ZEIT Now.
@@ -45,9 +45,9 @@ Next, [setup a Now for Git integration](/docs/v2/git-integration) to deploy your
 
 ## Serverful vs. Serverless APIs
 
-Serverful applications need to run consistently, watching for requests. Then, when requested, the application handles the request itself.
+Serverful apps need to run consistently, watching for requests. Then, when requested, the app handles the request itself.
 
-In serverful monolith style applications, routing is commonly handled by a single file. Inside of that file, all routes are declared, providing a single point of failure. Let's look at an Express.js example to illustrate this:
+In serverful monolith style apps, routing is commonly handled by a single file. Inside of that file, all routes are declared, providing a single point of failure. Let's look at an Express.js example to illustrate this:
 
 ```js
 app.get('/', function(req, res) {
@@ -67,7 +67,7 @@ app.get('/teams/data', function(req, res) {
 
 ### Moving to ZEIT Now and Serverless
 
-With serverless, functionality is split into separate files, called [Serverless Functions](/docs/v2/serverless-functions/introduction). When a path is requested, the individual Serverless Function is [invoked](/docs/v2/advanced/concepts/lambdas). This avoids the whole application from having to wait and watch for requests, saving on time and resources.
+With serverless, functionality is split into separate files, called [Serverless Functions](/docs/v2/serverless-functions/introduction). When a path is requested, the individual Serverless Function is [invoked](/docs/v2/advanced/concepts/lambdas). This avoids the whole app from having to wait and watch for requests, saving on time and resources.
 
 #### Step 1: Creating an API Directory
 

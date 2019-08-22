@@ -8,9 +8,9 @@ import { GenericLink } from '~/components/text/link'
 
 export const meta = {
   title:
-    'Create a Next.js and Contentful Application That Builds and Deploys with Now',
+    'Create a Next.js and Contentful App That Builds and Deploys with ZEIT Now',
   description:
-    'How to deploy your Next.js and Contentful application with Now in a serverless environment',
+    'How to deploy your Next.js and Contentful app with ZEIT Now in a serverless environment.',
   published: '2019-06-18T16:51:04.000Z',
   authors: ['msweeneydev'],
   url: '/guides/deploying-next-and-contentful-with-now',
@@ -18,12 +18,12 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-next-contentful-with-now/deploying-next-contentful-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-contentful-with-now.mdx',
-  lastEdited: '2019-08-20T15:14:47.000Z'
+  lastEdited: '2019-08-22T09:01:17.000Z'
 }
 
 In this guide, you will discover how to create a [Next.js](https://nextjs.org/) app that displays links to posts from the [ZEIT blog](/blog) by utilizing the [Contentful](https://www.contentful.com/) client, before deploying **with just a single command** to [ZEIT Now](/docs/v2).
 
-[Next.js](https://nextjs.org/) from [ZEIT](https://zeit.co) is a **production-ready framework** that helps you create fast React applications. [Contentful](https://www.contentful.com/) is a powerful headless CMS that allows you to **rapidly create, manage and distribute content** to any platform you like.
+[Next.js](https://nextjs.org/) from [ZEIT](https://zeit.co) is a **production-ready framework** that helps you create fast React apps. [Contentful](https://www.contentful.com/) is a powerful headless CMS that allows you to **rapidly create, manage and distribute content** to any platform you like.
 
 By following this guide, you will create a clone of the [example app](https://nextjs-contentful.now-examples.now.sh/), a starting point to get you up and running with your own Next.js + Contentful app in minutes.
 
@@ -88,7 +88,7 @@ That's all the setup required for [Contentful](https://www.contentful.com/), wit
 
 In the next step, you will create your [Next.js](https://nextjs.org/) app.
 
-## Step 3: Creating your Next.js Application
+## Step 3: Creating your Next.js App
 
 Firstly, create a project directory and `cd` into it like so:
 
@@ -306,7 +306,7 @@ Now, add the following build script to your `package.json` file:
   your Next.js + Contentful project.
 </Caption>
 
-Next, you will make your API keys available to your application during local development by creating a `.env.build` file.
+Next, you will make your API keys available to your app during local development by creating a `.env.build` file.
 
 Create a `.env.build` file at the root of your project directory with the following code, adding your API keys where instructed:
 
@@ -332,16 +332,16 @@ Lastly, to make your API keys available for [cloud deployment](/docs/v2/deployme
   Adding the <InlineCode>CONTENTFUL_ACCESS_TOKEN</InlineCode> secret to your project using <GenericLink href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">Now Secrets</GenericLink>.
 </Caption>
 
-With those steps out the way you are now able to run your application. You can develop your application locally using the following command:
+With those steps out the way you are now able to run your app. You can develop your app locally using the following command:
 
 <Snippet dark text="next dev" />
 <Caption>
   Using the <InlineCode>next dev</InlineCode> command to run the app locally.
 </Caption>
 
-## Step 5: Deploying the Application
+## Step 5: Deploying the App
 
-With your application ready, it is time to deploy it using **just a single command**:
+With your app ready, it is time to deploy it using **just a single command**:
 
 <Snippet dark text="now" />
 <Caption>

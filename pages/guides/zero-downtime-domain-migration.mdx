@@ -7,14 +7,14 @@ import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
 
 export const meta = {
-  title: 'Zero-Downtime Domain Migration',
+  title: 'Zero-Downtime Domain Migration with ZEIT Now',
   description:
-    'Migrating your domain from an external service to ZEIT with no downtime, in just a few steps.',
+    'Learn how to migrate your domain from an external service to ZEIT Now with no downtime, in just a few steps.',
   published: '2019-07-11T17:00:00.860Z',
   authors: ['msweeneydev'],
   url: '/guides/zero-downtime-domain-migration',
   editUrl: 'pages/guides/zero-downtime-domain-migration.mdx',
-  lastEdited: '2019-08-21T08:42:44.000Z'
+  lastEdited: '2019-08-22T09:01:17.000Z'
 }
 
 When migrating to another set of nameservers, there can often be downtime incurred. In this guide we will walk you through adding your domain to ZEIT and setting it up before migrating the nameservers, ensuring no downtime at any point.
@@ -25,7 +25,7 @@ When migrating to another set of nameservers, there can often be downtime incurr
   the automatic renewal of wildcard certificates. Furthermore, many DNS
   providers{' '}
   <b>do not have a global connection capable of low-latency geo-routing</b>,
-  which is likely to <b>slow down your applications</b>.
+  which is likely to <b>slow down your apps</b>.
 </Note>
 
 ## Step 1: Adding and Verifying Your Domain
@@ -75,7 +75,7 @@ With your domain provider, create the TXT record using the `name` (also known as
 
 ## Step 2: Preparing the Domain with DNS, Certs, and Deploying to Production
 
-Now that your domain is verified, you have more control over it with Now. You can now generate an SSL Certificate, add any DNS Records, and deploy your application using your domain, all ready for when you switch over fully.
+Now that your domain is verified, you have more control over it with Now. You can now generate an SSL Certificate, add any DNS Records, and deploy your app using your domain, all ready for when you switch over fully.
 
 ### Generating an SSL Certificate
 

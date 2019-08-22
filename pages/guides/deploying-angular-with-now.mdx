@@ -7,20 +7,20 @@ import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
 
 export const meta = {
-  title: 'Create an Angular Application That Builds and Deploys with Now',
-  description: 'How to deploy your Angular application with Now',
+  title: 'Create an Angular App That Builds and Deploys with ZEIT Now',
+  description: 'Learn how to deploy your Angular app with ZEIT Now.',
   published: '2019-02-27T03:00:00.860Z',
   authors: ['unicodeveloper'],
   url: '/guides/deploying-angular-with-now',
   image:
     'https://og-image.now.sh/**Deploy%20an%20Angular%20app**%20with%20Now.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fangular.io%2Fassets%2Fimages%2Flogos%2Fangular%2Fangular.svg&heights=250&heights=300',
   editUrl: 'pages/guides/deploying-angular-with-now.mdx',
-  lastEdited: '2019-08-20T15:14:47.000Z'
+  lastEdited: '2019-08-22T09:01:17.000Z'
 }
 
-Angular is a popular JavaScript framework for building applications across all platforms; web, mobile web, native mobile, and native desktop.
+Angular is a popular JavaScript framework for building apps across all platforms; web, mobile web, native mobile, and native desktop.
 
-In this guide, we will deploy an Angular application with [ZEIT Now](/docs/v2) like the following: <https://tour-of-heroes-he3j9k80n.now.sh/>
+In this guide, we will deploy an Angular app with [ZEIT Now](/docs/v2) like the following: <https://tour-of-heroes-he3j9k80n.now.sh/>
 
 <Image
   src={`${
@@ -33,7 +33,7 @@ In this guide, we will deploy an Angular application with [ZEIT Now](/docs/v2) l
 
 ## Step 1: Set Up Your Angular Project
 
-The most straightforward way to set up an Angular project is to use the [official Angular CLI tool](https://angular.io/cli). The CLI tool interactively generates an Angular application that works out of the box.
+The most straightforward way to set up an Angular project is to use the [official Angular CLI tool](https://angular.io/cli). The CLI tool interactively generates an Angular app that works out of the box.
 
 If you don't have the Angular CLI installed globally, use the following command to install it:
 
@@ -43,7 +43,7 @@ If you don't have the Angular CLI installed globally, use the following command 
 Once the installation is complete, run the following command in your terminal to create a new Angular app:
 
 <Snippet dark text="ng new my-new-app" />
-<Caption>Creating a new Angular application within a terminal.</Caption>
+<Caption>Creating a new Angular app within a terminal.</Caption>
 
 Once you run the command, the Angular CLI presents the following options:
 
@@ -55,13 +55,13 @@ For the first option, if you choose `Yes`, the CLI tool adds [routing](https://a
 After a successful scaffolding, `cd` into `my-new-app` directory and run the following command to serve your app in the browser:
 
 <Snippet dark text="ng serve --open" />
-<Caption>Running your Angular application locally</Caption>
+<Caption>Running your Angular app locally</Caption>
 
 Your browser will automatically be launched with the served Angular app at <http://localhost:4200/>
 
 ## Step 2: Deploy Your Angular Project with Now
 
-With your Angular application set up, it is ready to deploy live with [Now](/docs/v2).
+With your Angular app set up, it is ready to deploy live with [Now](/docs/v2).
 
 If you have not yet installed Now, you can do so by [installing Now CLI](/download).
 
@@ -70,7 +70,7 @@ With Now installed, you can deploy your Angular project with **just a single com
 <Snippet dark text="now" />
 
 <Caption>
-  Deploying the application with the <InlineCode>now</InlineCode> command.
+  Deploying the app with the <InlineCode>now</InlineCode> command.
 </Caption>
 
 If you want your app to deploy automatically, you can install either the [Now for GitHub](/docs/v2/integrations/now-for-github/) or [Now for GitLab](/docs/v2/integrations/now-for-gitlab/) apps, this will provide you with unique deployments for your Git repository on every push.

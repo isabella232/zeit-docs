@@ -7,9 +7,9 @@ import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
 
 export const meta = {
-  title: 'Create and Deploy a MongoDB-powered Node.js API with Now',
+  title: 'Create and Deploy a MongoDB-Powered Node.js API with ZEIT Now',
   description:
-    'Learn how to create a serverless Node.js API with data powered by MongoDB then deploy it as a serverless application with ZEIT Now.',
+    'Learn how to create a serverless Node.js API with data powered by MongoDB then deploy it as a serverless app with ZEIT Now.',
   published: '2019-05-24T17:53:20.489Z',
   authors: ['timothy'],
   url: '/guides/deploying-a-mongodb-powered-api-with-node-and-now',
@@ -17,7 +17,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-a-mongodb-powered-api-with-node-and-now/card.png`,
   editUrl: 'pages/guides/deploying-a-mongodb-powered-api-with-node-and-now.mdx',
-  lastEdited: '2019-08-21T08:42:44.000Z'
+  lastEdited: '2019-08-22T09:01:17.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Node.js](https://nodejs.org/) API powered by [MongoDB](https://www.mongodb.com/), on [ZEIT Now](/now).
@@ -202,7 +202,7 @@ module.exports = async (req, res) => {
 
 ## Step 3: Local Development
 
-Now that you have your MongoDB database, an API endpoint, and configuration all done, you can start to [develop your API, and applications, locally](/docs/v2/development/basics).
+Now that you have your MongoDB database, an API endpoint, and configuration all done, you can start to [develop your API, and apps, locally](/docs/v2/development/basics).
 
 Using Now CLI, you can start a development process from your terminal that mimics your production environment using the configuration you provided in your `now.json` file.
 
@@ -225,15 +225,15 @@ Next, run the Now CLI development command from the terminal:
 <Snippet dark text="now" />
 <Caption>Starting Now CLI's dev process from the terminal.</Caption>
 
-After starting the development process, Now CLI will provide you with a localhost address for where your application is running. This is commonly <http://localhost:3000> unless the port is taken.
+After starting the development process, Now CLI will provide you with a localhost address for where your app is running. This is commonly <http://localhost:3000> unless the port is taken.
 
 Using the default port, you can find your new API endpoint at <http://localhost:3000/api/users.js>.
 
 ## Step 4: Deploying
 
-The next and final step is to deploy your application with a single command.
+The next and final step is to deploy your app with a single command.
 
-With Now, you can deploy your application to [different environments](/docs/v2/custom-domains#deploying-with-your-domain), depending on what stage your application is at; either staging or production.
+With Now, you can deploy your app to [different environments](/docs/v2/custom-domains#deploying-with-your-domain), depending on what stage your app is at; either staging or production.
 
 To deploy to a unique alias, use the following [Now CLI](/download) command from your terminal:
 

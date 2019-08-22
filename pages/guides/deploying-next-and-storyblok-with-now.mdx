@@ -10,18 +10,18 @@ export const meta = {
   title:
     'Create a Next.js and Storyblok App That Builds and Deploys with ZEIT Now',
   description:
-    'Learn how you can use Storyblok as a Headless CMS to power content for your Next.js app.',
+    'Learn how you can use Storyblok as a Headless CMS to power content for your Next.js app deployed with ZEIT Now.',
   published: '2019-06-24T16:51:04.000Z',
   authors: ['msweeneydev'],
   url: 'https://zeit.co/guides/deploying-next-and-storyblok-with-now',
   image: `https://zeit.co/docs/static/guides/deploying-next-storyblok-with-now/deploying-next-storyblok-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-storyblok-with-now.mdx',
-  lastEdited: '2019-08-20T15:14:47.000Z'
+  lastEdited: '2019-08-22T09:01:17.000Z'
 }
 
 In this guide, you will discover how to create a [Next.js](https://nextjs.org/) app that displays links to posts from the [ZEIT blog](/blog) by utilizing the [Storyblok](https://www.storyblok.com/) headless CMS, before deploying **with just a single command** to [ZEIT Now](/docs/v2).
 
-[Next.js](https://nextjs.org/) from [ZEIT](https://zeit.co) is a **production-ready framework** that helps you create fast React applications. [Storyblok](https://www.storyblok.com/) is a headless CMS with a **visual editor, block system, custom field types and localization built in**.
+[Next.js](https://nextjs.org/) from [ZEIT](https://zeit.co) is a **production-ready framework** that helps you create fast React apps. [Storyblok](https://www.storyblok.com/) is a headless CMS with a **visual editor, block system, custom field types and localization built in**.
 
 By following this guide, you will create a clone of the [example app](https://nextjs-storyblok.now-examples.now.sh/), a starting point to get you up and running with your own Next.js + Storyblok app in minutes.
 
@@ -93,7 +93,7 @@ That's it for creating content! You can edit both the **Post** and **Post Schema
 
 At this point, return back to your **Content Dashboard** and click **Settings** from the sidebar on the left. Select the **API-Keys** tab and create a new **Public** key, you should make a note of this so it can be used later.
 
-## Step 2: Creating your Next.js Application
+## Step 2: Creating your Next.js App
 
 Firstly, create a project directory and `cd` into it like so:
 
@@ -286,7 +286,7 @@ Now, add the following build script to your `package.json` file:
   your Next.js + Storyblok project.
 </Caption>
 
-Next, you will make your API keys available to your application during local development by creating a `.env.build` file.
+Next, you will make your API keys available to your app during local development by creating a `.env.build` file.
 
 Create a `.env.build` file at the root of your project directory with the following code, adding your API keys where instructed:
 
@@ -306,16 +306,16 @@ Lastly, to make your API key available for [cloud deployment](/docs/v2/deploymen
   Adding the <InlineCode>STORYBLOK_API_TOKEN</InlineCode> secret to your project using <GenericLink href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">Now Secrets</GenericLink>.
 </Caption>
 
-With those steps out the way you are now able to run your application. You can develop your application locally using the following command:
+With those steps out the way you are now able to run your app. You can develop your app locally using the following command:
 
 <Snippet dark text="next dev" />
 <Caption>
   Using the <InlineCode>next dev</InlineCode> command to run the app locally.
 </Caption>
 
-## Step 4: Deploying the Application
+## Step 4: Deploying the App
 
-With your application ready, it is time to deploy it using **just a single command**:
+With your app ready, it is time to deploy it using **just a single command**:
 
 <Snippet dark text="now" />
 <Caption>

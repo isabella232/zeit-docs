@@ -7,20 +7,20 @@ import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
 
 export const meta = {
-  title: 'Create and Deploy a Next.js and Prismic Application with Now',
+  title: 'Create and Deploy a Next.js and Prismic App with ZEIT Now',
   description:
-    'Creating a Next.js project with Prismic as a content source and deploying to Now',
+    'Learn how to create a Next.js and Prismic app that is deployed with ZEIT Now.',
   published: '2019-06-26T14:46:50.000Z',
   authors: ['raulg'],
   url: '/guides/deploying-next-and-prismic-with-now',
   image: `https://zeit.co/docs/static/guides/deploying-next-prismic-with-now/deploying-next-prismic-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-prismic-with-now.mdx',
-  lastEdited: '2019-08-20T15:14:47.000Z'
+  lastEdited: '2019-08-22T09:01:17.000Z'
 }
 
 In this guide, you will create a [Next.js](https://nextjs.org/) blog site from scratch that will show you how to; source the content you have in a Prismic repository, create pages programmatically, handle dynamic routing, and deploy it with [Now](/docs/v2).
 
-[Next.js](https://nextjs.org/) from [ZEIT](https://zeit.co) is a **production-ready framework** that helps you create fast React applications. [Prismic](https://prismic.io/) is a Headless Content Management System that **helps developers and content managers to work on websites and apps together**.
+[Next.js](https://nextjs.org/) from [ZEIT](https://zeit.co) is a **production-ready framework** that helps you create fast React apps. [Prismic](https://prismic.io/) is a Headless Content Management System that **helps developers and content managers to work on websites and apps together**.
 
 <Image
   src={`${
@@ -48,11 +48,11 @@ Navigate to the folder you have created and inspect the files and folders that a
 - `/custom_types`, which details the data modeling for your Prismic repository, in this case the **blog_home** and **post** documents
 - `package.json`, which includes the Next.js and React dependencies, as well as scripts to [develop](/docs/v2/development/basics/) and [deploy](/docs/v2/deployments/basics/) for Now
 
-You can run your application with the `npm run dev` command, and check at `localhost:3000` that the app is running correctly.
+You can run your app with the `npm run dev` command, and check at `localhost:3000` that the app is running correctly.
 
 You will notice that for now it is only a simple index page, as defined in `/pages`. This takes care of getting your simple [Next.js](https://nextjs.org/) app started, you can now begin setting up your Prismic repository.
 
-Continue by installing the required packages to integrate your Next.js web application with Prismic.
+Continue by installing the required packages to integrate your Next.js web app with Prismic.
 
 <Snippet dark text="npm i prismic-javascript prismic-reactjs" />
 <Caption>Adding the <InlineCode>prismic-javascript</InlineCode> and <InlineCode>prismic-reactjs</InlineCode> dependencies to fetch and render documents.</Caption>
@@ -259,7 +259,7 @@ You can now refresh your site at [`localhost:3000`](http://localhost:3000/) and 
 
 ## Step 5: Deploying With Now
 
-So far, you have been using `npm run dev` to develop locally, but what good is a blog if you don't show it off to the world. It's time to deploy it to the Now platform and enjoy your serverless web application.
+So far, you have been using `npm run dev` to develop locally, but what good is a blog if you don't show it off to the world. It's time to deploy it to the Now platform and enjoy your serverless web app.
 
 You can run `npm run deploy` to launch the [Now CLI](/download) which will quickly setup and deploy your project online. Once it's done, you can check the generated url.
 
