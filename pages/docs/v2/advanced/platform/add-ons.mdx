@@ -7,7 +7,7 @@ export const meta = {
   title: 'Add-Ons',
   description: 'Using Now with additional features for more usecases.',
   editUrl: 'pages/docs/v2/advanced/platform/add-ons.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-22T08:28:24.000Z'
 }
 
 In the case that the default features of Now are not enough to meet your needs, you can enable so-called "Add-Ons" on the dashboard.
@@ -71,6 +71,8 @@ By default, every deployment you create comes with a unique URL. This URL, by de
 If you do not want anybody to access your deployment, not passing the `--public` flag in Now CLI is already a huge leap forward, as the code is private by default. In turn, nobody can access the source code of any deployment you create on Now.
 
 However, if you want additional privacy, you can also replace the `.now.sh` suffix with any custom domain of your choice, making the URL 100% unguessable, so that not even the very existence of the deployment can be verified by third parties.
+
+With the custom deployment suffix active, both the `scope` (by default, the account name), and the standard `.now.sh` suffix will be replaced by the custom deployment suffix in all deployments URL's.
 
 When [enabling the Add-On](/pricing/add-ons/custom-deployment-suffix), you are also granted a free `.sh` domain right out of the box.
 
