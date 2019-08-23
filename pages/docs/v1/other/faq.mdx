@@ -8,7 +8,7 @@ export const meta = {
     'The answers to our most frequently asked questions for Now and other ZEIT products and services',
   date: '30 Jan 2018',
   editUrl: 'pages/docs/v1/other/faq.mdx',
-  lastEdited: '2019-08-12T14:19:27.000Z'
+  lastEdited: '2019-08-23T14:08:07.000Z'
 }
 
 ## Where can I see the current status of the platform?
@@ -63,8 +63,8 @@ This command will remove all your non-aliased deployments with the name `my-app`
 
 Now will deploy to the nearest region available automatically by default. You can override this behavior by either:
 
-- [Configuring it while deploying](https://zeit.co/docs/features/scaling#scaling-while-deploying) or
-- [Configuring it after deploying](https://zeit.co/docs/features/scaling#scaling-after-deploying)
+- [Configuring it while deploying](/docs/v1/features/scaling#scaling-while-deploying) or
+- [Configuring it after deploying](/docs/v1/features/scaling#scaling-after-deploying)
 
 ## How do I change my account's email address?
 
@@ -101,7 +101,7 @@ This model offers a few interesting benefits:
 
 Now deployments **must** expose a [single](/docs/deployment-types/node#port-selection) [port](/docs/deployment-types/docker#port-selection) running an HTTP or WebSocket server. With Docker, however, it is possible to run a database in the same container of the HTTP API consuming it.
 
-However, due to the stateless nature of our deployments, everything you store will be reset upon the deployment instance getting recycled. The data also won't be shared across instances when [scaling](/docs/getting-started/scaling) and will be reset when unfreezing.
+However, due to the stateless nature of our deployments, everything you store will be reset upon the deployment instance getting recycled. The data also won't be shared across instances when [scaling](/docs/v1/getting-started/scaling) and will be reset when unfreezing.
 
 We recommend that you run your database on a database hosting service such as [Cosmos DB](https://azure.microsoft.com/en-gb/services/cosmos-db/), [Redis Labs](https://redislabs.com/), [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), or [Compose](https://www.compose.com/). With these services, you will be able to match the regional locations available in Now and scale individually to provide equal service to your database than with your app deployments.
 
@@ -130,17 +130,17 @@ There is no way to disable SSL. All <Now color="#000" /> deployments are HTTPS b
 
 ## How do I specify an environment variable with a value that starts with `@`?
 
-We will always try to replace any environment variable where the value starts with an `@` with a [secret](/docs/features/env-and-secrets). We have [an active issue for this on GitHub](https://github.com/zeit/now-cli/issues/1061).
+We will always try to replace any environment variable where the value starts with an `@` with a [secret](/docs/v1/features/env-and-secrets). We have [an active issue for this on GitHub](https://github.com/zeit/now-cli/issues/1061).
 
 As a workaround, you can set up a secret with a value starting with `@`.
 
 ## Why does my deployment occasionally have long response times?
 
-Deployments have a [default scale configuration](/docs/getting-started/scaling#default-scaling) which sets each deployment to freeze after a while from inactivity.
+Deployments have a [default scale configuration](/docs/v1/getting-started/scaling#default-scaling) which sets each deployment to freeze after a while from inactivity.
 
 This lets you have any amount of deployments without worrying about your currently running instances. They will be unfrozen when a new request comes and keeps the instance running for a while (eventually freezing from inactivity with no requests again).
 
-This behavior can be completely avoided using the `now scale` command as described in the [previous link](/docs/getting-started/scaling#default-scaling).
+This behavior can be completely avoided using the `now scale` command as described in the [previous link](/docs/v1/getting-started/scaling#default-scaling).
 
 ## Can I remove or delete a team?
 
@@ -280,7 +280,7 @@ Create a deployment with a basic HTTP service running and initialize a `setInter
 
 Every time you need to run the task the first deployment must send an HTTP request to the second deployment. Using two different deployments will let you change the code of your task without restarting the interval.
 
-Remember to [scale](/docs/getting-started/scaling) the first deployment to [always have one running instance](/docs/getting-started/scaling#fixed-scaling).
+Remember to [scale](/docs/v1/getting-started/scaling) the first deployment to [always have one running instance](/docs/v1/getting-started/scaling#fixed-scaling).
 
 ## How Can I Test How Many Requests per Second I Can Handle with One Instance?
 
@@ -301,7 +301,7 @@ You can see those metrics on [your account](/dashboard) or team [dashboard](/blo
 Yes, it is possible under the `/tmp` folder. Note that each instance has its own temporary directory, which means you can lose those files under following conditions:
 
 - A new deployment will have a newly created temporary folder
-- Each [instance of the same deployment](docs/getting-started/scaling) will have its own temporary folder.
+- Each [instance of the same deployment](docs/v1/getting-started/scaling) will have its own temporary folder.
 - If the deployment freeze (has zero running instances) when it unfreezes, the temporary folder will be also cleared.
 
 We recommend that you only do this for temporary files and use [now-storage](https://github.com/sergiodxa/now-storage) or another storage service for hosting those files indefinitely.
