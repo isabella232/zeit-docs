@@ -10,7 +10,7 @@ export const meta = {
   title: 'Custom Domains',
   description: 'How to add and use a custom domain with your project.',
   editUrl: 'pages/docs/v2/custom-domains.mdx',
-  lastEdited: '2019-08-22T10:47:21.000Z'
+  lastEdited: '2019-08-22T19:51:35.000Z'
 }
 
 All deployments are assigned a `.now.sh` prefixed domain. You can use a custom domain with your projects, whether that is a ZEIT domain or an external domain registered with a third-party. This document will explain how to add a domain to ZEIT Now, and how to use it with your deployments.
@@ -91,22 +91,29 @@ Once you change the nameservers with your domain provider and the domain propaga
 
 ## Deploying with Your Domain
 
-To use the custom domain with your project, you can add it to your project from the **Domains** section of the project dashboard.
+To use your custom domain, add it through the **Domains** section of your Project Overview.
 
 <Note hint>
-  A project is defined when first deploying (using the directory name), or when
-  creating a project from your dashboard. You can read more about them in the{' '}
+  A project is defined when first deploying (by default; using the directory
+  name), or when creating a project from your dashboard. You can read more about
+  them in the{' '}
   <GenericLink href="/docs/v2/advanced/platform/projects/">
     projects documentation
   </GenericLink>
   .
 </Note>
 
-To do this, select your project from the dashboard and click the **Domains** tab. Here you will find an input to add your custom domains for production, such as `timothy.now.sh` or `my-zeit-domain.com`.
+Select a project from your dashboard and click the **Domains** tab. Add your custom domain for production here, such as `timothy.now.sh` or `my-zeit-domain.com`, or a subdomain like `my-app.my-zeit-domain.com` (providing the root domain is added to your account).
 
-If the domain is **registered to your account and available for use** it will be indicated below the input box and you can continue. Otherwise, if the domain is **not registered to your account**, it will automatically be added and we will attempt to verify it for you.
+If the domain you add is **registered to your account and available for use** (which will be indicated in the UI) you can continue. Otherwise, if the domain is **not registered to your account**, it will automatically be added and we will attempt to verify it for you.
 
-Once the domain has been added, the interface will update to reflect this along with further information such as instructions on how to use it, read on to learn more about how to use it, here.
+Once the domain has been added, you will be presented with information on how to use it. Read on, here, to learn more about how to use it.
+
+<Note>
+  The first successful deployment of a new project will be marked as production
+  and subsequently assigned with your custom domain automatically if you have
+  not used one of the following methods.
+</Note>
 
 ### Using Now CLI
 
