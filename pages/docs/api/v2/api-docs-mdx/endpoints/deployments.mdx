@@ -220,7 +220,11 @@ In the case you want to attach metadata to a new deployment, you need to pass th
   "env": [],
   "build": {
     "env": []
-  }
+  },
+  "target": null,
+  "alias": [],
+  "aliasError": null,
+  "aliasAssigned": true
 }`}</Code>
 </Example>
 
@@ -276,7 +280,11 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
   "env": [],
   "build": {
     "env": []
-  }
+  },
+  "target": null,
+  "alias": [],
+  "aliasError": null,
+  "aliasAssigned": true
 }`}</Code>
 
 <b>Deploying again with the same request would yield the same response</b>, with the same ID and URL due to no differences to the files or configuration.
@@ -327,7 +335,11 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
   "env": [],
   "build": {
     "env": []
-  }
+  },
+  "target": null,
+  "alias": [],
+  "aliasError": null,
+  "aliasAssigned": true
 }`}</Code>
 </Example>
 
@@ -335,11 +347,11 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 
 | Key               | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                                                                                               |
 | ----------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**            | <HelpLink href="#api-basics/types">String</HelpLink>       | A string holding the unique ID of the deployment.                                                                                                                                                         |
+| **id**            | <HelpLink href="#api-basics/types">ID</HelpLink>           | A string holding the unique ID of the deployment.                                                                                                                                                         |
 | **url**           | <HelpLink href="#api-basics/types">String</HelpLink>       | A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be `null`.                                                                                |
 | **name**          | <HelpLink href="#api-basics/types">String</HelpLink>       | The name of the deployment.                                                                                                                                                                               |
 | **meta**          | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing the deployment's metadata. For example, <InlineCode>{ "foo": "bar" }</InlineCode>.                                                                                                   |
-| **version**       | <HelpLink href="#api-basics/types">Integer</HelpLink>      | The Now platform version the deployment is associated to.                                                                                                                                                 |
+| **version**       | <HelpLink href="#api-basics/types">Integer</HelpLink>      | The Now platform version the deployment is associated with.                                                                                                                                               |
 | **regions**       | <HelpLink href="#api-basics/types">List</HelpLink>         | The regions the deployment exists in, e.g. `sfo1`.                                                                                                                                                        |
 | **routes**        | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`.                                    |
 | **builds**        | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of objects containing the Builds for a particular set of sources in the deployment. Each object contains a `src` and `use` describing the sources files that use Builds in the deployment.         |
@@ -349,6 +361,10 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 | **readyState**    | <HelpLink href="#api-basics/types">Enum</HelpLink>         | The state of the deployment depending on the process of deploying, or if it is ready or in an error state. Possible values are `INITIALIZING`, `ANALYZING`, `BUILDING`, `DEPLOYING`, `READY`, or `ERROR`. |
 | **createdAt**     | <HelpLink href="#api-basics/types">Date</HelpLink>         | A number containing the date when the deployment was created in milliseconds.                                                                                                                             |
 | **createdIn**     | <HelpLink href="#api-basics/types">String</HelpLink>       | The region where the deployment was first created, e.g. `sfo1`.                                                                                                                                           |
+| **env**           | <HelpLink href="#api-basics/types">List</HelpLink>         | The keys of the environment variables that were assigned during runtime.                                                                                                                                  |
+| **build.env**     | <HelpLink href="#api-basics/types">List</HelpLink>         | The keys of the environment variables that were assigned during the build phase.                                                                                                                          |
+| **target**        | <HelpLink href="#api-basics/types">String</HelpLink>       | If defined, either `staging` if a staging alias in the format `<project>.<team>.now.sh` was assigned upon creation, or `production` if the aliases from `alias` were assigned.                            |
+| **alias**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of all the aliases (default aliases, staging aliases and production aliases) that were assigned upon deployment creation.                                                                          |
 | **aliasError**    | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object that will contain a `code` and a `message` when the aliasing fails, otherwise the value will be `null`.                                                                                         |
 | **aliasAssigned** | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | A boolean that will be `true` when the aliases from the `alias` property were assigned successfully.                                                                                                      |
 
@@ -392,7 +408,11 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
   "env": [],
   "build": {
     "env": []
-  }
+  },
+  "target": null,
+  "alias": [],
+  "aliasError": null,
+  "aliasAssigned": true
 }`}</Code>
 </Example>
 
@@ -491,26 +511,28 @@ One way to obtain a deployment ID is to [list all deployments](#endpoints/deploy
 
 #### Response Parameters
 
-| Key            | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                                                                                               |
-| -------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**         | <HelpLink href="#api-basics/types">ID</HelpLink>           | A String holding the unique ID of the deployment.                                                                                                                                                         |
-| **url**        | <HelpLink href="#api-basics/types">String</HelpLink>       | A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be `null`.                                                                                |
-| **name**       | <HelpLink href="#api-basics/types">String</HelpLink>       | The name of the deployment.                                                                                                                                                                               |
-| **meta**       | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing the deployment's metadata. For example, <InlineCode>{ "foo": "bar" }</InlineCode>.                                                                                                   |
-| **version**    | <HelpLink href="#api-basics/types">Integer</HelpLink>      | The Now platform version the deployment is associated with.                                                                                                                                               |
-| **regions**    | <HelpLink href="#api-basics/types">List</HelpLink>         | The regions the deployment exists in, e.g. `sfo1`.                                                                                                                                                        |
-| **routes**     | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`.                                    |
-| **builds**     | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of objects containing the Builds for a particular set of sources in the deployment. Each object contains a `src` and `use` describing the sources files that use Builds in the deployment.         |
-| **plan**       | <HelpLink href="#api-basics/types">String</HelpLink>       | The pricing plan the deployment was made under.                                                                                                                                                           |
-| **public**     | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | A Boolean representing if the deployment is public or not. By default this is `false`.                                                                                                                    |
-| **ownerId**    | <HelpLink href="#api-basics/types">String</HelpLink>       | The unique ID of the user or team the deployment belongs to.                                                                                                                                              |
-| **readyState** | <HelpLink href="#api-basics/types">Enum</HelpLink>         | The state of the deployment depending on the process of deploying, or if it is ready or in an error state. Possible values are `INITIALIZING`, `ANALYZING`, `BUILDING`, `DEPLOYING`, `READY`, or `ERROR`. |
-| **createdAt**  | <HelpLink href="#api-basics/types">Date</HelpLink>         | A number containing the date when the deployment was created in milliseconds.                                                                                                                             |
-| **createdIn**  | <HelpLink href="#api-basics/types">String</HelpLink>       | The region where the deployment was first created, e.g. `sfo1`.                                                                                                                                           |
-| **env**        | <HelpLink href="#api-basics/types">List</HelpLink>         | The keys of the environment variables that were assigned during runtime.                                                                                                                                  |
-| **build.env**  | <HelpLink href="#api-basics/types">List</HelpLink>         | The keys of the environment variables that were assigned during the build phase.                                                                                                                          |
-| **target**     | <HelpLink href="#api-basics/types">String</HelpLink>       | If defined, either `staging` if a staging alias in the format `<project>.<team>.now.sh` was assigned upon creation, or `production` if the aliases from `alias` were assigned.                            |
-| **alias**      | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of all the aliases (default aliases, staging aliases and production aliases) that were assigned upon deployment creation.                                                                          |
+| Key               | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                                                                                               |
+| ----------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **id**            | <HelpLink href="#api-basics/types">ID</HelpLink>           | A string holding the unique ID of the deployment.                                                                                                                                                         |
+| **url**           | <HelpLink href="#api-basics/types">String</HelpLink>       | A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be `null`.                                                                                |
+| **name**          | <HelpLink href="#api-basics/types">String</HelpLink>       | The name of the deployment.                                                                                                                                                                               |
+| **meta**          | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing the deployment's metadata. For example, <InlineCode>{ "foo": "bar" }</InlineCode>.                                                                                                   |
+| **version**       | <HelpLink href="#api-basics/types">Integer</HelpLink>      | The Now platform version the deployment is associated with.                                                                                                                                               |
+| **regions**       | <HelpLink href="#api-basics/types">List</HelpLink>         | The regions the deployment exists in, e.g. `sfo1`.                                                                                                                                                        |
+| **routes**        | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`.                                    |
+| **builds**        | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of objects containing the Builds for a particular set of sources in the deployment. Each object contains a `src` and `use` describing the sources files that use Builds in the deployment.         |
+| **plan**          | <HelpLink href="#api-basics/types">String</HelpLink>       | The pricing plan the deployment was made under.                                                                                                                                                           |
+| **public**        | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | A boolean representing if the deployment is public or not. By default this is `false`.                                                                                                                    |
+| **ownerId**       | <HelpLink href="#api-basics/types">String</HelpLink>       | The unique ID of the user or team the deployment belongs to.                                                                                                                                              |
+| **readyState**    | <HelpLink href="#api-basics/types">Enum</HelpLink>         | The state of the deployment depending on the process of deploying, or if it is ready or in an error state. Possible values are `INITIALIZING`, `ANALYZING`, `BUILDING`, `DEPLOYING`, `READY`, or `ERROR`. |
+| **createdAt**     | <HelpLink href="#api-basics/types">Date</HelpLink>         | A number containing the date when the deployment was created in milliseconds.                                                                                                                             |
+| **createdIn**     | <HelpLink href="#api-basics/types">String</HelpLink>       | The region where the deployment was first created, e.g. `sfo1`.                                                                                                                                           |
+| **env**           | <HelpLink href="#api-basics/types">List</HelpLink>         | The keys of the environment variables that were assigned during runtime.                                                                                                                                  |
+| **build.env**     | <HelpLink href="#api-basics/types">List</HelpLink>         | The keys of the environment variables that were assigned during the build phase.                                                                                                                          |
+| **target**        | <HelpLink href="#api-basics/types">String</HelpLink>       | If defined, either `staging` if a staging alias in the format `<project>.<team>.now.sh` was assigned upon creation, or `production` if the aliases from `alias` were assigned.                            |
+| **alias**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of all the aliases (default aliases, staging aliases and production aliases) that were assigned upon deployment creation.                                                                          |
+| **aliasError**    | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object that will contain a `code` and a `message` when the aliasing fails, otherwise the value will be `null`.                                                                                         |
+| **aliasAssigned** | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | A boolean that will be `true` when the aliases from the `alias` property were assigned successfully.                                                                                                      |
 
 <Example>
 <P>Example Request:</P>
@@ -548,10 +570,13 @@ One way to obtain a deployment ID is to [list all deployments](#endpoints/deploy
   "build": {
     "env": []
   },
+  "target": "production",
   "alias": [
+    "mywebsite.com",
     "project.my-team.now.sh"
   ],
-  "target": "staging"
+  "aliasError": null,
+  "aliasAssigned": true
 }`}</Code>
 </Example>
 
