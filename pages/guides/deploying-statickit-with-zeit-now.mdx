@@ -3,18 +3,19 @@ import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import { GenericLink } from '~/components/text/link'
+import { Image } from '~/components/media'
 
 export const meta = {
   title: 'Gather Emails on Your Next.js Site with StaticKit and ZEIT Now',
   description:
     'Learn how to use StaticKit and Next.js to collect emails from a landing page deployed with ZEIT Now.',
-  published: '2019-08-21T12:00:00.860Z',
+  published: '2019-08-22T12:00:00.860Z',
   authors: ['msweeneydev'],
   url: '/guides/deploying-statickit-with-zeit-now',
   editUrl: 'pages/guides/deploying-statickit-with-zeit-now.mdx',
   image:
     'https://og-image.now.sh/**Deploy%20a%20StaticKit%20Project**%20%3Cbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB3aWR0aD0iNDYwcHgiIGhlaWdodD0iNDYwcHgiIHZpZXdCb3g9IjAgMCA0NjAgNDYwIiB2%250D%250AZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxp%250D%250Abms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBz%250D%250AdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI%2BCiAgICAgICAg%250D%250APGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAwLjAwMDAwMCwgMTAwLjAwMDAwMCkiIGZpbGw9IiMw%250D%250AMDAwMDAiIGZpbGwtcnVsZT0ibm9uemVybyI%2BCiAgICAgICAgICAgIDxwYXRoIGQ9Ik0wLDAgTDI2%250D%250AMCwwIEwyNjAsNzYuNzgxMjUgTDI2MCwyNjAgTDAsMjYwIEwwLDAgWiBNMzAsMzAgTDMwLDIzMCBM%250D%250AMjMwLDIzMCBMMjMwLDMwIEwzMCwzMCBaIj48L3BhdGg%2BCiAgICAgICAgICAgIDxwb2x5Z29uIHRy%250D%250AYW5zZm9ybT0idHJhbnNsYXRlKDEzMC4wMDAwMDAsIDEzMC4wMDAwMDApIHJvdGF0ZSgtNDUuMDAw%250D%250AMDAwKSB0cmFuc2xhdGUoLTEzMC4wMDAwMDAsIC0xMzAuMDAwMDAwKSAiIHBvaW50cz0iNzAgMTQ1%250D%250AIDE5MCAxNDUgMTkwIDExNSA3MCAxMTUiPjwvcG9seWdvbj4KICAgICAgICA8L2c%2BCiAgICA8L2c%2B%250D%250ACjwvc3ZnPgo%3D&heights=200&heights=300',
-  lastEdited: '2019-08-22T08:02:02.000Z'
+  lastEdited: '2019-08-23T12:19:26.000Z'
 }
 
 [StaticKit](https://statickit.com/) is a collection of dynamic components for static sites, enabling developers to build dynamic interfaces with ease.
@@ -107,7 +108,7 @@ You will be returned to the StaticKit Dashboard where the site you just added wi
 
 Click the **StaticKit** logo to return to the dashboard, you will find your site now has a form with an `ID`, make a note of this `ID` for later use.
 
-To provide your application with access to StaticKit components, run this command from the root of your project directory:
+To provide your app with access to StaticKit components, run this command from the root of your project directory:
 
 <Snippet dark text="npm install @statickit/react" />
 <Caption>Adding the <InlineCode>@statickit/react</InlineCode> dependency to the project.</Caption>
@@ -148,17 +149,29 @@ You now have a working landing page, the last step is to deploy it with [ZEIT No
 
 If you have not yet installed Now, you can do so by [installing Now CLI](/download).
 
-You can now deploy your StaticKit + Next.js application library with **a single command**:
+You can now deploy your StaticKit + Next.js app with **a single command**:
 
 <Snippet dark text="now" />
 
 <Caption>
-  Deploying the application with the <InlineCode>now</InlineCode> command.
+  Deploying the app with the <InlineCode>now</InlineCode> command.
 </Caption>
 
-If you want to deploy your StaticKit + Next.js application from a Git repository, you can use either [Now for GitHub](/docs/v2/advanced/now-for-github/) or [Now for GitLab](/docs/v2/advanced/now-for-gitlab/) to have your project automatically deployed on every push, and aliased on push to master.
+When you app has deployed, it will look like the example below:
 
-For more information, you can find the [source code](https://github.com/levelhq/statickit-examples/tree/master/next-landing-page) for this example on GitHub.
+<Image
+  src={`/static/guides/deploying-statickit-with-zeit-now/next-landing-page.png`}
+  width={650}
+  height={423}
+  oversize
+/>
+<Caption>
+  The StaticKit + Next.js landing page created with this guide.
+</Caption>
+
+If you want to deploy your StaticKit + Next.js app from a Git repository, you can use either [Now for GitHub](/docs/v2/advanced/now-for-github/) or [Now for GitLab](/docs/v2/advanced/now-for-gitlab/) to have your project automatically deployed on every push, and aliased on push to master.
+
+For more information, you can find the [source code](https://github.com/levelhq/statickit-examples/tree/master/next-landing-page) for this example on GitHub along with the [live example](https://next-landing-page.now-examples.now.sh/).
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
