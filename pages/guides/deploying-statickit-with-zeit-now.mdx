@@ -123,7 +123,7 @@ Next, import the `useForm` hook and bind the form `onSubmit` to [StaticKit](http
   const OptInForm = () => {
 +   const [state, submit] = useForm("[YOUR FORM ID]");
 
-+	  if (state.succeeded) {
++   if (state.succeeded) {
 +     return (
 +       <p className="pb-3 font-bold text-gray-800 text-lg">
 +         Thank you for signing up!
@@ -157,7 +157,7 @@ You can now deploy your StaticKit + Next.js app with **a single command**:
   Deploying the app with the <InlineCode>now</InlineCode> command.
 </Caption>
 
-When you app has deployed, it will look like the example below:
+When your app has deployed, it will look like the example below:
 
 <Image
   src={`/static/guides/deploying-statickit-with-zeit-now/next-landing-page.png`}
