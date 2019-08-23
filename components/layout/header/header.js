@@ -426,7 +426,11 @@ class Header extends Component {
                   !router.pathname.startsWith('/docs/api') &&
                   !router.pathname.startsWith('/docs/integrations') && (
                     <div className="navigation">
-                      <DocsNavbarDesktop data={data} url={router} />
+                      <DocsNavbarDesktop
+                        data={data}
+                        url={router}
+                        handleIndexClick={handleIndexClick}
+                      />
                     </div>
                   )}
               </div>
@@ -473,7 +477,14 @@ class Header extends Component {
           .mobile-navigation {
             display: flex;
             height: 0;
+            width: 100%;
             transition: all 0.1s ease;
+            position: fixed;
+            overflow-y: auto;
+            top: 80px;
+            z-index: 1000;
+            max-height: calc(100vh - 80px);
+            background: var(--geist-background);
           }
 
           .mobile-navigation .section {

@@ -6,6 +6,7 @@ import { UserContext } from '~/lib/user-context'
 import { ZenContext } from '~/lib/zen-context'
 import UseTeamInfo from '~/lib/use-team-info'
 import { withToasts } from '~/components/toasts'
+import * as bodyLocker from '~/lib/utils/body-locker'
 
 const LayoutHeader = React.memo(props => {
   const isAmp = useAmp()
@@ -89,6 +90,12 @@ class Layout extends React.Component {
   }
 
   handleToggleNavigation = () => {
+    if (this.state.navigationActive === true) {
+      bodyLocker.unlock()
+    } else {
+      bodyLocker.lock()
+    }
+
     this.setState(({ navigationActive }) => {
       return {
         navigationActive: !navigationActive
@@ -98,9 +105,7 @@ class Layout extends React.Component {
 
   handleIndexClick = () => {
     if (this.state.navigationActive) {
-      this.setState({
-        navigationActive: false
-      })
+      this.handleToggleNavigation()
     }
   }
 

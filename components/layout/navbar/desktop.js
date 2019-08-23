@@ -32,7 +32,7 @@ function findClosestScrollableElement(_elem) {
   }
 }
 
-function Category({ info, level = 1, ...props }) {
+function Category({ info, level = 1, onClick, ...props }) {
   const levelClass = `level-${level}`
   const [toggle, setToggle] = useState(false)
 
@@ -51,7 +51,7 @@ function Category({ info, level = 1, ...props }) {
     }
   }, [categorySelected])
 
-  const onClick = () => {
+  const onToggleCategory = () => {
     metrics.event({
       action: 'sidebar_category_toggled',
       category: 'engagement',
@@ -69,7 +69,7 @@ function Category({ info, level = 1, ...props }) {
       })}
       key={info.name || ''}
     >
-      <a className="label" onClick={onClick}>
+      <a className="label" onClick={onToggleCategory}>
         <ArrowRight fill="#999" />
         {info.name}
       </a>
@@ -81,6 +81,7 @@ function Category({ info, level = 1, ...props }) {
               level={level + 1}
               categorySelected={categorySelected}
               key={postInfo.name}
+              onClick={onClick}
               {...props}
             />
           ))}
@@ -165,7 +166,7 @@ function Category({ info, level = 1, ...props }) {
   )
 }
 
-function Post({ info, level = 1, ...props }) {
+function Post({ info, level = 1, onClick, ...props }) {
   const levelClass = `level-${level}`
 
   if (info.posts) {
@@ -184,6 +185,7 @@ function Post({ info, level = 1, ...props }) {
         scrollSelectedIntoView={props.scrollSelectedIntoView}
         categorySelected={props.categorySelected}
         level={level}
+        onClick={onClick}
       />
       <style jsx>{`
         .link {
@@ -295,7 +297,7 @@ export class NavLink extends React.Component {
   }
 
   render() {
-    const { info } = this.props
+    const { info, onClick } = this.props
     const { selected } = this.state
 
     return (
@@ -309,7 +311,11 @@ export class NavLink extends React.Component {
             {info.name}
           </a>
         ) : (
-          <LinkWithHoverPrefetch href={info.href} as={info.as || info.href}>
+          <LinkWithHoverPrefetch
+            href={info.href}
+            as={info.as || info.href}
+            onClick={onClick}
+          >
             {info.name}
           </LinkWithHoverPrefetch>
         )}
@@ -366,17 +372,27 @@ export class NavLink extends React.Component {
   }
 }
 
-export default function DocsNavbarDesktop({ data = [], ...props }) {
+export default function DocsNavbarDesktop({
+  data = [],
+  handleIndexClick,
+  ...props
+}) {
   return (
     <>
       {data.map(categoryInfo =>
         categoryInfo.posts ? (
-          <Category info={categoryInfo} {...props} key={categoryInfo.name} />
+          <Category
+            info={categoryInfo}
+            {...props}
+            key={categoryInfo.name}
+            onClick={handleIndexClick}
+          />
         ) : (
           <Post
             info={categoryInfo}
             level={1}
             key={categoryInfo.name}
+            onClick={handleIndexClick}
             {...props}
           />
         )

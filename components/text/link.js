@@ -32,8 +32,8 @@ export const InternalLink = ({
   color,
   hover
 }) => (
-  <span onClick={onClick} className={cn({ 'no-underline': !underlineOnHover })}>
-    <LinkWithHoverPrefetch href={href} as={as}>
+  <span className={cn({ 'no-underline': !underlineOnHover })}>
+    <LinkWithHoverPrefetch href={href} as={as} onClick={onClick}>
       {children}
     </LinkWithHoverPrefetch>
     <style jsx>{`
@@ -448,10 +448,15 @@ IconExternalLink.contextTypes = {
 
 class HoverPrefetchLink extends Component {
   render() {
-    const { children, router, ...rest } = this.props
+    const { children, router, onClick, ...rest } = this.props
     return (
       <NativeLink {...rest}>
-        <a onMouseEnter={() => router.prefetch(this.props.href)}>{children}</a>
+        <a
+          onMouseEnter={() => router.prefetch(this.props.href)}
+          onClick={onClick}
+        >
+          {children}
+        </a>
       </NativeLink>
     )
   }
