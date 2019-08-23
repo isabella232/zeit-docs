@@ -10,7 +10,7 @@ export const meta = {
   description:
     'Create proxies, redirects, cache-control headers, and more with ZEIT Now routes, easily.',
   editUrl: 'pages/docs/v2/advanced/routes.mdx',
-  lastEdited: '2019-08-22T10:47:21.000Z'
+  lastEdited: '2019-08-23T13:30:21.000Z'
 }
 
 ZEIT Now uses routes to define the behavior of how a request is handled on the routing side. For example, you might use a route to proxy a URL to another, redirect a client, or apply a header with the response to a request.
@@ -132,7 +132,7 @@ An example of using the `headers` property to add [shared caching](https://devel
 
 The `continue` property allows routing to continue even though the `src` was matched.
 
-For example, you can use this property in combination with [the `headers` property](#headers) to append headers to a broader group of routes instead of applying it to every route. `continue` **can not** be used with `dest`.
+For example, you can use this property in combination with [the `headers` property](#headers) to append headers to a broader group of routes instead of applying it to every route.
 
 ```json
 {
