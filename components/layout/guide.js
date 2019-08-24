@@ -161,6 +161,7 @@ class Guide extends React.PureComponent {
 
             .authors-list {
               display: flex;
+              flex-flow: row wrap;
             }
 
             .author-info {
@@ -169,6 +170,7 @@ class Guide extends React.PureComponent {
               margin-right: 24px;
               font-size: var(--font-size-primary);
               line-height: var(--line-height-primary);
+              margin-bottom: 8px;
             }
 
             .author-info :global(.avatar) {
