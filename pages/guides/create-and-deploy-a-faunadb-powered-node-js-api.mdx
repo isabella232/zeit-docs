@@ -6,31 +6,28 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
 import Card from '~/components/card'
-import Example from '~/components/example'
 import { Code } from '~/components/code'
 
 export const meta = {
-  title:
-    'Create and Deploy a FaunaDB-powered Node.js API using ZEIT Now with Zero Config',
+  title: 'Create and Deploy a FaunaDB-powered Node.js API',
   description:
     'Learn how to create a FaunaDB backed Node.js API and deploy it with ZEIT Now.',
-  published: '2019-08-12T17:00:00.000Z',
+  published: '2019-09-01T17:00:00.000Z',
   authors: ['danieltodonnell'],
-  url: `/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now`,
+  url: `/guides/create-and-deploy-a-faunadb-powered-node-js-api`,
   image: `${
     process.env.ASSETS
-  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/card.png`,
-  editUrl:
-    'pages/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now.mdx',
-  lastEdited: '2019-08-25T02:50:20.000Z'
+  }/guides/create-and-deploy-a-faunadb-powered-node-js-api/card.png`,
+  editUrl: 'pages/guides/create-and-deploy-a-faunadb-powered-node-js-api.mdx',
+  lastEdited: '2019-09-01T02:50:20.000Z'
 }
 
 <Image
   src={`${
     process.env.ASSETS
-  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/card.png`}
-  width={1200 / 1.5}
-  height={628 / 1.5}
+  }/guides/create-and-deploy-a-faunadb-powered-node-js-api/card.png`}
+  width={1200 / 1.45}
+  height={628 / 1.45}
   oversize
 />
 
@@ -45,9 +42,9 @@ To start this example, you need to have [created a FaunaDB account](https://dash
 <Image
   src={`${
     process.env.ASSETS
-  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/fauna-register.png`}
-  width={1934 / 2.5}
-  height={1516 / 2.5}
+  }/guides/create-and-deploy-a-faunadb-powered-node-js-api/fauna-register.png`}
+  width={2048 / 2.5}
+  height={1568 / 2.5}
   oversize
 />
 <Caption>The FaunaDB login page.</Caption>
@@ -57,9 +54,9 @@ Once you have logged into your free account, create a child database named `zeit
 <Image
   src={`${
     process.env.ASSETS
-  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/fauna-create-zeit-db.png`}
-  width={1442 / 2}
-  height={890 / 2}
+  }/guides/create-and-deploy-a-faunadb-powered-node-js-api/fauna-create-zeit-db.png`}
+  width={2048 / 2.5}
+  height={1628 / 2.5}
   oversize
 />
 <Caption>Creating a new database in the FaunaDB dashboard.</Caption>
@@ -67,9 +64,9 @@ Once you have logged into your free account, create a child database named `zeit
 <Image
   src={`${
     process.env.ASSETS
-  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/fauna-zeit-db-home.png`}
-  width={1942 / 2.5}
-  height={1514 / 2.5}
+  }/guides/create-and-deploy-a-faunadb-powered-node-js-api/fauna-zeit-db-home.png`}
+  width={2048 / 2.5}
+  height={1536 / 2.5}
   oversize
 />
 <Caption>The FaunaDB dashboard after creating a new database.</Caption>
@@ -81,9 +78,9 @@ Select the **Shell** tab from the sidebar, copy in [this FQL script](https://raw
 <Image
   src={`${
     process.env.ASSETS
-  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/fauna-zeit-db-shell.png`}
-  width={1928 / 2.5}
-  height={1508 / 2.5}
+  }/guides/create-and-deploy-a-faunadb-powered-node-js-api/fauna-zeit-db-shell.png`}
+  width={2048 / 2.5}
+  height={1536 / 2.5}
   oversize
 />
 <Caption>Adding data to a FaunaDB database from the dashboard using a FQL script.</Caption>
@@ -93,9 +90,9 @@ After executing the script, your **Collections** page will look like this, you a
 <Image
   src={`${
     process.env.ASSETS
-  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/fauna-zeit-db-collections.png`}
-  width={1942 / 2.5}
-  height={1522 / 2.5}
+  }/guides/create-and-deploy-a-faunadb-powered-node-js-api/fauna-zeit-db-collections.png`}
+  width={2048 / 2.5}
+  height={1536 / 2.5}
   oversize
 />
 <Caption>The Collections page on the FaunaDB dashboard after adding data to the database.</Caption>
@@ -116,9 +113,9 @@ Go to the [**Security** page](https://dashboard.fauna.com/keys/@db/zeit) and cli
 <Image
   src={`${
     process.env.ASSETS
-  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/fauna-zeit-db-security.png`}
-  width={1934 / 2.5}
-  height={1522 / 2.5}
+  }/guides/create-and-deploy-a-faunadb-powered-node-js-api/fauna-zeit-db-security.png`}
+  width={2048 / 2.5}
+  height={1536 / 2.5}
   oversize
 />
 <Caption>Viewing an <InlineCode>access key</InlineCode> on the FaunaDB dashboard.</Caption>
@@ -268,12 +265,14 @@ If you have followed all the steps, and correctly setup the fauna secret, then y
 <Image
   src={`${
     process.env.ASSETS
-  }/guides/deploying-a-faunadb-powered-api-with-node-and-zeit-now/json-output.png`}
+  }/guides/create-and-deploy-a-faunadb-powered-node-js-api/json-output.png`}
   width={852 / 2}
   height={1376 / 2}
   oversize
 />
 <Caption>The JSON output from the FaunaDB database.</Caption>
+
+This project is [available in Github](https://github.com/danieltodonnell/faunadb-zeit-fql-demo).
 
 If you want to deploy your Node.js + FaunaDB project when you push to a Git repository, you can use either [Now for GitHub](/docs/v2/advanced/now-for-github/) or [Now for GitLab](/docs/v2/advanced/now-for-gitlab/) to have your project automatically deployed on every push, and aliased on push to master.
 
