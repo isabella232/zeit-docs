@@ -87,6 +87,7 @@ const Guides = () => (
       }
       .guides {
         min-height: 100vh;
+        padding-bottom: 64px;
       }
 
       .guide-heading {

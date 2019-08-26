@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { MDXProvider } from '@mdx-js/tag'
 import { withRouter } from 'next/router'
+import { useAmp } from 'next/amp'
 import debounce from 'lodash.debounce'
 import { HEADER_HEIGHT } from '~/lib/constants'
 
@@ -20,8 +21,12 @@ import scrollToElement from '~/lib/utils/scroll-to-element'
 import Select from '~/components/select'
 import Sidebar from '~/components/layout/sidebar'
 import withPermalink from '~/lib/api/with-permalink'
+import HR from '~/components/text/hr'
+import { FooterFeedback } from '~/components/feedback-input'
 
 import IntegrationsDocs from './integrations-docs-mdx/index.mdx'
+
+const NonAmpOnly = ({ children }) => (useAmp() ? null : children)
 
 const debouncedChangeHash = debounce(changeHash, 200)
 
@@ -288,6 +293,12 @@ class IntegrationsPage extends Component {
                       })}
                     </div>
                   </div>
+                  <NonAmpOnly>
+                    <>
+                      <HR />
+                      <FooterFeedback />
+                    </>
+                  </NonAmpOnly>
                 </Content>
               </Main>
             )}
@@ -312,10 +323,18 @@ class IntegrationsPage extends Component {
               border-bottom: 1px solid #eaeaea;
             }
 
+            .category-wrapper:last-child {
+              padding-bottom: 0;
+            }
+
             .category-wrapper,
             .section-wrapper,
             .entry-wrapper {
               position: relative;
+            }
+
+            .entry-wrapper > :global(*:last-child) {
+              margin-bottom: 0;
             }
 
             span {

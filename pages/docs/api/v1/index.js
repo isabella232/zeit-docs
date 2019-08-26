@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { MDXProvider } from '@mdx-js/tag'
 import { withRouter } from 'next/router'
+import { useAmp } from 'next/amp'
 import Link from 'next/link'
 import { HEADER_HEIGHT } from '~/lib/constants'
 
@@ -23,8 +24,12 @@ import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
 import ToggleGroup, { ToggleItem } from '~/components/toggle-group'
 import withPermalink from '~/lib/api/with-permalink'
+import HR from '~/components/text/hr'
+import { FooterFeedback } from '~/components/feedback-input'
 
 import ApiDocs from './api-docs-mdx/index.mdx'
+
+const NonAmpOnly = ({ children }) => (useAmp() ? null : children)
 
 class APIPage extends Component {
   state = {
@@ -208,75 +213,83 @@ class APIPage extends Component {
                       .
                     </Note>
                   </div>
-                  {structure.map(category => {
-                    const categorySlugs = { category: category.slug }
-                    return (
-                      <div
-                        className="category-wrapper"
-                        key={getFragment(categorySlugs)}
-                      >
-                        <span id={getFragment(categorySlugs)} />
-                        <Context.Provider
-                          value={{
-                            slugs: categorySlugs,
-                            updateActive: this.updateActive
-                          }}
+                  <div>
+                    {structure.map(category => {
+                      const categorySlugs = { category: category.slug }
+                      return (
+                        <div
+                          className="category-wrapper"
+                          key={getFragment(categorySlugs)}
                         >
-                          {category.content}
-                        </Context.Provider>
+                          <span id={getFragment(categorySlugs)} />
+                          <Context.Provider
+                            value={{
+                              slugs: categorySlugs,
+                              updateActive: this.updateActive
+                            }}
+                          >
+                            {category.content}
+                          </Context.Provider>
 
-                        {category.sections.map(section => {
-                          const sectionSlugs = {
-                            category: category.slug,
-                            section: section.slug
-                          }
+                          {category.sections.map(section => {
+                            const sectionSlugs = {
+                              category: category.slug,
+                              section: section.slug
+                            }
 
-                          return (
-                            <div
-                              className="section-wrapper"
-                              key={getFragment(sectionSlugs)}
-                            >
-                              <span id={getFragment(sectionSlugs)} />
-                              <Context.Provider
-                                value={{
-                                  slugs: sectionSlugs,
-                                  updateActive: this.updateActive
-                                }}
+                            return (
+                              <div
+                                className="section-wrapper"
+                                key={getFragment(sectionSlugs)}
                               >
-                                {section.content}
-                              </Context.Provider>
-                              <div>
-                                {section.entries.map(entry => {
-                                  const entrySlugs = {
-                                    category: category.slug,
-                                    section: section.slug,
-                                    entry: entry.slug
-                                  }
+                                <span id={getFragment(sectionSlugs)} />
+                                <Context.Provider
+                                  value={{
+                                    slugs: sectionSlugs,
+                                    updateActive: this.updateActive
+                                  }}
+                                >
+                                  {section.content}
+                                </Context.Provider>
+                                <div>
+                                  {section.entries.map(entry => {
+                                    const entrySlugs = {
+                                      category: category.slug,
+                                      section: section.slug,
+                                      entry: entry.slug
+                                    }
 
-                                  return (
-                                    <div
-                                      className="entry-wrapper"
-                                      key={getFragment(entrySlugs)}
-                                    >
-                                      <span id={getFragment(entrySlugs)} />
-                                      <Context.Provider
-                                        value={{
-                                          slugs: entrySlugs,
-                                          updateActive: this.updateActive
-                                        }}
+                                    return (
+                                      <div
+                                        className="entry-wrapper"
+                                        key={getFragment(entrySlugs)}
                                       >
-                                        {entry.content}
-                                      </Context.Provider>
-                                    </div>
-                                  )
-                                })}
+                                        <span id={getFragment(entrySlugs)} />
+                                        <Context.Provider
+                                          value={{
+                                            slugs: entrySlugs,
+                                            updateActive: this.updateActive
+                                          }}
+                                        >
+                                          {entry.content}
+                                        </Context.Provider>
+                                      </div>
+                                    )
+                                  })}
+                                </div>
                               </div>
-                            </div>
-                          )
-                        })}
-                      </div>
-                    )
-                  })}
+                            )
+                          })}
+                        </div>
+                      )
+                    })}
+                  </div>
+                  <NonAmpOnly>
+                    <>
+                      <HR />
+                      <FooterFeedback />
+                    </>
+                  </NonAmpOnly>
                 </Content>
               </Main>
             )}
@@ -305,10 +318,18 @@ class APIPage extends Component {
               border-bottom: 1px solid #eaeaea;
             }
 
+            .category-wrapper:last-child {
+              padding-bottom: 0;
+            }
+
             .category-wrapper,
             .section-wrapper,
             .entry-wrapper {
               position: relative;
+            }
+
+            .entry-wrapper > :global(*:last-child) {
+              margin-bottom: 0;
             }
 
             span {

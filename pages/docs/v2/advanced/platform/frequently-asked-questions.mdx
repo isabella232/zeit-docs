@@ -9,7 +9,7 @@ export const meta = {
 
 ## Missing Public Directory
 
-If your project contains a `package.json` file with a `build` [script](https://docs.npmjs.com/misc/scripts), it is expected to output its static files into a directory named `public`, at the root of the project, when the `build` [script](https://docs.npmjs.com/misc/scripts) is executed.
+If your project contains a `package.json` file with a `build` [script](https://docs.npmjs.com/misc/scripts), and no `now.json` configuration, it is expected to output its static files into a directory named `public`, at the root of the project, when the `build` [script](https://docs.npmjs.com/misc/scripts) is executed.
 
 You are seeing this error because your setup did not satisfy the above constraint.
 
@@ -41,7 +41,7 @@ Once you have done this, the error will disappear since the output will be the e
 
 ## Missing Build Script
 
-If your project contains a `package.json` file and no `api` directory, it is expected to provide a `build` [script](https://docs.npmjs.com/misc/scripts) that performs a static build of your frontend and outputs it to a `public` directory at the root of your project.
+If your project contains a `package.json` file, no `api` directory, and no `now.json` configuration, it is expected to provide a `build` [script](https://docs.npmjs.com/misc/scripts) that performs a static build of your frontend and outputs it to a `public` directory at the root of your project.
 
 When properly configured, your `package.json` file would look similar to this:
 
